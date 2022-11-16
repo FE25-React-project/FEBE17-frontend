@@ -100,7 +100,7 @@ const Footer = () => {
 
       <div
         className="text-center p-3 text-dark "
-        style={{ backgroundColor: "light" }}
+        style={{ backgroundColor: "rgb(48, 49, 50)" }}
       ></div>
     </MDBFooter>
   );
