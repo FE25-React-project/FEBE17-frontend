@@ -1,6 +1,6 @@
 const Registerpage = () => {
     return ( 
-        <div>
+        <div className="container-fluid">
             dari register
         </div>
      );
