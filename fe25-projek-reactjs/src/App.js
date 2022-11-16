@@ -4,6 +4,7 @@ import './App.css';
 import Header from './components/Header';
 
 import Routerapp from './Router';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -11,7 +12,7 @@ function App() {
       <Header/>
       <Routerapp/>
 
-       
+       <Footer/>
     </div>
   );
 }
