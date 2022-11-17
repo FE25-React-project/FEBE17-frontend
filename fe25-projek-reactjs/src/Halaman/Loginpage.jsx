@@ -1,22 +1,52 @@
 import { MDBBtn, MDBBadge, MDBContainer, MDBInput,MDBCarousel,MDBCarouselItem } from "mdb-react-ui-kit";
-import { useSelector } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { Signin } from "../redux/action";
+import { useState } from "react";
 const Loginpage = () => {
-  const navigate = useNavigate()
-  const user = useSelector(state=>state.user)
+  
+  const {user} = useSelector(state=>state.user)
+  const [email,setEmail] = useState('')
+  const [password, setPassword] =useState('')
+  const dispatch = useDispatch()
+
+  useEffect(()=>{
+    dispatch(Signin(email,password))
+  },[])
+  
+  const SubmitForm = (e) =>{
+    e.preventDefault()
+    const cariAkun = user.find(
+      item=> item.email === email && item.password === password
+    )
+
+
+    if(cariAkun){
+      localStorage.setItem('user', JSON.stringify(cariAkun))
+      alert('berhasil')
+    }
+    else{
+        alert('gagal')
+    }
+  }
+
   return (
     <MDBContainer className="container-fluid">
       <div className="d-flex" >
          <div className="col align-self-center" >
         <h3 className="mb-5">WELCOME BACK</h3>
-        <label htmlFor="" className="mb-4">Email</label>
-        <MDBInput label="Email input" className="mb-3" size="lg" id="typeEmail" type="email" />
+        <form onSubmit={SubmitForm}>
+          <label htmlFor="" className="mb-4">Email</label>
+        <MDBInput label="Email input" className="mb-3" size="lg" id="typeEmail" type="email" value={email} onChange={(e)=>setEmail(e.target.value)} />
 
         <label htmlFor="" className="mb-4">Password</label>
-        <MDBInput label="Password input" id="typePassword" size="lg" className="mb-3" type="password" />
+        <MDBInput label="Password input" id="typePassword" size="lg" className="mb-3" type="text" value={password} onChange={(e)=>setPassword(e.target.value)} />
         <MDBBtn className="me-1 mx-6 " color="blue">
           Login
         </MDBBtn>
+        </form>
+        
         <h6>
         Dont have any account yet?
               <Link to="/register">

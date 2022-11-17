@@ -7,10 +7,38 @@ import {
   MDBCarouselItem,
   MDBBadge,
 } from "mdb-react-ui-kit";
+import { ToastContainer, toast } from 'react-toastify';
+import { useState } from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 const Registerpage = () => {
+  const [email,setEmail] = useState('')
+  const [password, setPassword] =useState('')
+  const dispatch = useDispatch()
+
+  const SubmitForm = (e) =>{
+    e.preventDefault()
+    
+
+    if(e.target.email.value === "" && e.target.password.value === "" ){
+        alert('form tidak boleh kosong, silahkan isi form dibawah ini')
+    }
+    else{
+        alert('gagal')
+    }
+  }
+  // const SubmitForm = (event) =>{
+  //   event.preventDefault()
+  //   if(s){
+
+  //   }
+  //   else{
+
+  //   }
+  // }
   return (
     <div className="container-fluid">
+      <ToastContainer/>
       <MDBContainer className="container-fluid">
         <div className="d-flex flex-lg-row ">
           <div className="col align-self-center  ">
@@ -40,7 +68,8 @@ const Registerpage = () => {
             <h3 className="mb-5">
               Create your account for unexpected experience
             </h3>
-            <label htmlFor="" className="mb-4">
+            <form >
+              <label htmlFor="" className="mb-4">
               Email
             </label>
             <MDBInput
@@ -62,9 +91,11 @@ const Registerpage = () => {
               type="password"
             />
 
-            <MDBBtn className="me-1 mx-6 " color="blue">
+            <MDBBtn className="me-1 mx-6 " type="submit" color="blue">
               Register
             </MDBBtn>
+            </form>
+            
             <h6>
               Your account is ready go to
               <Link to="/login">
