@@ -1,10 +1,19 @@
-import { MDBBtn, MDBCol, MDBContainer, MDBInput,MDBCarousel,MDBCarouselItem } from "mdb-react-ui-kit";
+import {
+  MDBBtn,
+  MDBCol,
+  MDBContainer,
+  MDBInput,
+  MDBCarousel,
+  MDBCarouselItem,
+  MDBBadge,
+} from "mdb-react-ui-kit";
+import { Link } from "react-router-dom";
 const Registerpage = () => {
   return (
     <div className="container-fluid">
       <MDBContainer className="container-fluid">
         <div className="d-flex flex-lg-row ">
-  <div className="col align-self-center  ">
+          <div className="col align-self-center  ">
             <MDBCarousel showControls fade>
               <MDBCarouselItem
                 className="w-100 d-block carouselfoto"
@@ -28,7 +37,9 @@ const Registerpage = () => {
           </div>
 
           <div className="col align-self-center ">
-            <h3 className="mb-5">Create your account for unexpected experience</h3>
+            <h3 className="mb-5">
+              Create your account for unexpected experience
+            </h3>
             <label htmlFor="" className="mb-4">
               Email
             </label>
@@ -50,12 +61,17 @@ const Registerpage = () => {
               className="mb-3"
               type="password"
             />
-            <h6>Your account is ready go to Login page </h6>
+
             <MDBBtn className="me-1 mx-6 " color="blue">
               Register
             </MDBBtn>
+            <h6>
+              Your account is ready go to
+              <Link to="/login">
+                <MDBBadge className="ms-2">Login page</MDBBadge>
+              </Link>
+            </h6>
           </div>
-        
         </div>
       </MDBContainer>
     </div>

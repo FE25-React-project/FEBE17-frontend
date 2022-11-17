@@ -3,19 +3,18 @@ import {
   MDBContainer,
   MDBBreadcrumb,
   MDBBreadcrumbItem,
-  MDBNavbarItem,MDBNavbarLink
 } from "mdb-react-ui-kit";
 import React from "react";
 
 import { Link } from "react-router-dom";
 const Header = () => {
- 
   return (
     <MDBNavbar
       expand="lg"
-      className="d-flex "
+      className="d-flex justify-content-evenly"
       bgColor="light"
     >
+      <div>d</div>
       <div className="d-flex justify-content-center">
         <MDBContainer fluid>
           <nav aria-label="breadcrumb">
@@ -39,14 +38,14 @@ const Header = () => {
           </nav>
         </MDBContainer>
       </div>
-      <div>
+      
+      <div></div>
 
-        <img
-          src="https://i.postimg.cc/CKWgBW3N/Logo-Rilis-Album-Musisi-Cilik-Minimalis-Krem-Kuning-1.png"
-          alt=""
-          width="90vh"
-        />
-      </div>
+      <img
+        src="https://i.postimg.cc/CKWgBW3N/Logo-Rilis-Album-Musisi-Cilik-Minimalis-Krem-Kuning-1.png"
+        alt=""
+        width="90vh"
+      />
     </MDBNavbar>
   );
 };

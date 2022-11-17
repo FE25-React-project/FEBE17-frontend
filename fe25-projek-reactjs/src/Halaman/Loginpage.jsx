@@ -1,5 +1,9 @@
-import { MDBBtn, MDBCol, MDBContainer, MDBInput,MDBCarousel,MDBCarouselItem } from "mdb-react-ui-kit";
+import { MDBBtn, MDBBadge, MDBContainer, MDBInput,MDBCarousel,MDBCarouselItem } from "mdb-react-ui-kit";
+import { useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
 const Loginpage = () => {
+  const navigate = useNavigate()
+  const user = useSelector(state=>state.user)
   return (
     <MDBContainer className="container-fluid">
       <div className="d-flex" >
@@ -13,6 +17,12 @@ const Loginpage = () => {
         <MDBBtn className="me-1 mx-6 " color="blue">
           Login
         </MDBBtn>
+        <h6>
+        Dont have any account yet?
+              <Link to="/register">
+                <MDBBadge className="ms-2">Click here to make account </MDBBadge>
+              </Link>
+            </h6>
       </div>
       <div className="col align-self-center" >
       <MDBCarousel showControls fade>
