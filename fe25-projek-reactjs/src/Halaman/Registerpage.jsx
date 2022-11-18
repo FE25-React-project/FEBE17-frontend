@@ -7,38 +7,43 @@ import {
   MDBCarouselItem,
   MDBBadge,
 } from "mdb-react-ui-kit";
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer, toast } from "react-toastify";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 const Registerpage = () => {
-  const [email,setEmail] = useState('')
-  const [password, setPassword] =useState('')
-  const dispatch = useDispatch()
-
-  const SubmitForm = (e) =>{
-    e.preventDefault()
-    
-
-    if(e.target.email.value === "" && e.target.password.value === "" ){
-        alert('form tidak boleh kosong, silahkan isi form dibawah ini')
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate()
+  const SubmitForm = async (e) => {
+    e.preventDefault();
+    if (email === "") {
+      alert("email tidak boleh kosong");
+    } else if (password.length < 5){
+      alert("password harus memiliki setidaknya 6 character");
+    } 
+    else if (password === "") {
+      alert("password tidak boleh kosong");
+    } else {
+      try {
+        const response = await axios.post(
+          "https://634e3b4bf34e1ed82686101c.mockapi.io/USER_ACCOUNT",
+          {
+            email: email,
+            password: password,
+          }
+        );
+        alert("berhasil");
+        navigate('/login')
+      } catch (error) {
+        alert("gagal register");
+      }
     }
-    else{
-        alert('gagal')
-    }
-  }
-  // const SubmitForm = (event) =>{
-  //   event.preventDefault()
-  //   if(s){
+  };
 
-  //   }
-  //   else{
-
-  //   }
-  // }
   return (
     <div className="container-fluid">
-      <ToastContainer/>
+      <ToastContainer />
       <MDBContainer className="container-fluid">
         <div className="d-flex flex-lg-row ">
           <div className="col align-self-center  ">
@@ -68,34 +73,38 @@ const Registerpage = () => {
             <h3 className="mb-5">
               Create your account for unexpected experience
             </h3>
-            <form >
+            <form onSubmit={SubmitForm}>
               <label htmlFor="" className="mb-4">
-              Email
-            </label>
-            <MDBInput
-              label="Email input"
-              className="mb-3"
-              size="lg"
-              id="typeEmail"
-              type="email"
-            />
+                Email
+              </label>
+              <MDBInput
+                label="Email input"
+                className="mb-3"
+                size="lg"
+                id="typeEmail"
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
 
-            <label htmlFor="" className="mb-4">
-              Password
-            </label>
-            <MDBInput
-              label="Password input"
-              id="typePassword"
-              size="lg"
-              className="mb-3"
-              type="password"
-            />
+              <label htmlFor="" className="mb-4">
+                Password
+              </label>
+              <MDBInput
+                label="Password input"
+                id="typePassword"
+                size="lg"
+                className="mb-3"
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
 
-            <MDBBtn className="me-1 mx-6 " type="submit" color="blue">
-              Register
-            </MDBBtn>
+              <MDBBtn className="me-1 mx-6 " type="submit" color="blue">
+                Register
+              </MDBBtn>
             </form>
-            
+
             <h6>
               Your account is ready go to
               <Link to="/login">
@@ -110,3 +119,17 @@ const Registerpage = () => {
 };
 
 export default Registerpage;
+
+// if (e.target.email.value === "" && e.target.password.value === "") {
+//     alert("form tidak boleh kosong, silahkan isi form dibawah ini");
+// } else {
+//   alert("berhasil register").then((response)=>{
+//       if(response){
+//         console.log(response);
+//         dispatch(Signup({
+//           email: email,
+//           password: password,
+//         }))
+//       }
+//   })
+// }
