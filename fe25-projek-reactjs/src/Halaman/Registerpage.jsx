@@ -7,23 +7,41 @@ import {
   MDBCarouselItem,
   MDBBadge,
 } from "mdb-react-ui-kit";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer, toast, Zoom } from "react-toastify";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 const Registerpage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const SubmitForm = async (e) => {
     e.preventDefault();
-    if (email === "") {
-      alert("email tidak boleh kosong");
-    } else if (password.length < 5){
-      alert("password harus memiliki setidaknya 6 character");
-    } 
-    else if (password === "") {
-      alert("password tidak boleh kosong");
+
+    if (email === "" && password === "") {
+      toast.error("Kamu harus mengisi form terlebih dahulu", {
+        autoClose: 1000,
+        position: "top-center",
+        transition: Zoom,
+      });
+    } else if (email === "") {
+      toast.warning("Email tidak boleh kosong", {
+        autoClose: 1000,
+        position: "top-center",
+        transition: Zoom,
+      });
+    } else if (password === "") {
+      toast.warning("Password tidak boleh kosong", {
+        autoClose: 1000,
+        position: "top-center",
+        transition: Zoom,
+      });
+    } else if (password.length < 5) {
+      toast.warning("Password harus memiliki setidaknya 6 karakter", {
+        autoClose: 1000,
+        position: "top-center",
+        transition: Zoom,
+      });
     } else {
       try {
         const response = await axios.post(
@@ -33,10 +51,10 @@ const Registerpage = () => {
             password: password,
           }
         );
-        alert("berhasil");
-        navigate('/login')
+        toast.success("selamat kamu berhasil membuat akun");
+        navigate("/login");
       } catch (error) {
-        alert("gagal register");
+        console.log(error);
       }
     }
   };
@@ -46,29 +64,6 @@ const Registerpage = () => {
       <ToastContainer />
       <MDBContainer className="container-fluid">
         <div className="d-flex flex-lg-row ">
-          <div className="col align-self-center  ">
-            <MDBCarousel showControls fade>
-              <MDBCarouselItem
-                className="w-100 d-block carouselfoto"
-                itemId={1}
-                src="https://images.pexels.com/photos/2253813/pexels-photo-2253813.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                alt="..."
-              />
-              <MDBCarouselItem
-                className="w-100 d-block carouselfoto"
-                itemId={2}
-                src="https://images.pexels.com/photos/931018/pexels-photo-931018.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                alt="..."
-              />
-              <MDBCarouselItem
-                className="w-100 d-block carouselfoto"
-                itemId={3}
-                src="https://images.pexels.com/photos/2474689/pexels-photo-2474689.jpeg?auto=compress&cs=tinysrgb&w=1600"
-                alt="..."
-              />
-            </MDBCarousel>
-          </div>
-
           <div className="col align-self-center ">
             <h3 className="mb-5">
               Create your account for unexpected experience
@@ -100,7 +95,7 @@ const Registerpage = () => {
                 onChange={(e) => setPassword(e.target.value)}
               />
 
-              <MDBBtn className="me-1 mx-6 " type="submit" color="blue">
+              <MDBBtn className="me-1 mx-6 mb-3 " type="submit" color="blue">
                 Register
               </MDBBtn>
             </form>
@@ -111,7 +106,31 @@ const Registerpage = () => {
                 <MDBBadge className="ms-2">Login page</MDBBadge>
               </Link>
             </h6>
+          </div>          
+          <div className="col align-self-center  ">
+            <MDBCarousel showControls fade>
+              <MDBCarouselItem
+                className="w-100 d-block carouselfoto"
+                itemId={1}
+                src="https://images.pexels.com/photos/2253813/pexels-photo-2253813.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                alt="..."
+              />
+              <MDBCarouselItem
+                className="w-100 d-block carouselfoto"
+                itemId={2}
+                src="https://images.pexels.com/photos/931018/pexels-photo-931018.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                alt="..."
+              />
+              <MDBCarouselItem
+                className="w-100 d-block carouselfoto"
+                itemId={3}
+                src="https://images.pexels.com/photos/2474689/pexels-photo-2474689.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                alt="..."
+              />
+            </MDBCarousel>
           </div>
+
+
         </div>
       </MDBContainer>
     </div>

@@ -8,14 +8,16 @@ import {
 } from "mdb-react-ui-kit";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Signin } from "../redux/action";
 import { useState } from "react";
+import { toast, Zoom } from "react-toastify";
 const Loginpage = () => {
   const { user } = useSelector((state) => state.user);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(Signin(email, password));
@@ -29,9 +31,24 @@ const Loginpage = () => {
 
     if (cariAkun) {
       localStorage.setItem("user", JSON.stringify(cariAkun));
-      alert("berhasil");
-    } else {
-      alert("gagal");
+      toast.success(" Selamat kamu berhasil login!", {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        transition: Zoom,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+      navigate("/home");
+    }  else {
+      toast.error("kamu belum punya akun", {
+        autoClose: 1000,
+        position: "top-center",
+        transition: Zoom,
+      });
     }
   };
 
@@ -66,7 +83,7 @@ const Loginpage = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-            <MDBBtn className="me-1 mx-6 " color="blue">
+            <MDBBtn className="me-1 mx-6 mb-3 fw-bold" color="blue">
               Login
             </MDBBtn>
           </form>
