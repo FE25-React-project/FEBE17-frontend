@@ -3,7 +3,7 @@ const Section1 = () => {
   return (
     <div
         className='container-fluid text-center bg-image'
-        style={{ backgroundImage: "url('https://i.postimg.cc/631mLWWy/21964.jpg')", height: '1000px' }}
+        style={{ backgroundImage: "url('https://images.pexels.com/photos/354939/pexels-photo-354939.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')", height: '1000px' }}
       >
         <div className='mask' style={{ backgroundColor: 'rgba(0, 0, 0, 0.6)' }}>
           <div className='d-flex justify-content-center align-items-center h-100'>
