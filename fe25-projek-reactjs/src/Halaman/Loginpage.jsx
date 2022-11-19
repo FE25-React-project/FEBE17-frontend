@@ -42,7 +42,7 @@ const Loginpage = () => {
         progress: undefined,
         theme: "light",
       });
-      navigate("/home");
+      navigate("/");
     }  else {
       toast.error("kamu belum punya akun", {
         autoClose: 1000,
@@ -95,7 +95,7 @@ const Loginpage = () => {
             </Link>
           </h6>
         </div>
-        <div className="col align-self-center">
+        <div className="col align-self-center m-6 justify-self-end">
           <MDBCarousel showControls fade>
             <MDBCarouselItem
               className="w-100 d-block carouselfoto"

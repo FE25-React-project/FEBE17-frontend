@@ -1,7 +1,8 @@
 const Section2 = () => {
     return ( 
         <div>
-            section 2
+            <div></div>
+            <div> Tentang kami </div>
         </div>
      );
 }

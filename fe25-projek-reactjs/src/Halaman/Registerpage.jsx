@@ -1,13 +1,12 @@
 import {
   MDBBtn,
-  MDBCol,
   MDBContainer,
   MDBInput,
   MDBCarousel,
   MDBCarouselItem,
   MDBBadge,
 } from "mdb-react-ui-kit";
-import { ToastContainer, toast, Zoom } from "react-toastify";
+import { ToastContainer, toast, Zoom, Bounce } from "react-toastify";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -28,30 +27,33 @@ const Registerpage = () => {
       toast.warning("Email tidak boleh kosong", {
         autoClose: 1000,
         position: "top-center",
-        transition: Zoom,
+        transition: Bounce,
       });
     } else if (password === "") {
       toast.warning("Password tidak boleh kosong", {
         autoClose: 1000,
         position: "top-center",
-        transition: Zoom,
+        transition: Bounce,
       });
     } else if (password.length < 5) {
       toast.warning("Password harus memiliki setidaknya 6 karakter", {
         autoClose: 1000,
         position: "top-center",
-        transition: Zoom,
+        transition: Bounce,
       });
     } else {
       try {
         const response = await axios.post(
           "https://634e3b4bf34e1ed82686101c.mockapi.io/USER_ACCOUNT",
           {
+            autoClose: 1800,
             email: email,
             password: password,
           }
         );
-        toast.success("selamat kamu berhasil membuat akun");
+        toast.success("selamat kamu berhasil membuat akun" ,{
+          position: 'top-center'
+        } );
         navigate("/login");
       } catch (error) {
         console.log(error);
