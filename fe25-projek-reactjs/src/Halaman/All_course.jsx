@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import './Course.css'
+
 import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 
 function All_Course() {  
@@ -25,7 +27,8 @@ function All_Course() {
 
   return (
     <div>
-      <div id="header" className='mb-4 p-5 bg-primary text-white'>
+        <Navbar/>
+      <div id="header-course" className='mb-4 p-5 bg-primary text-white'>
             <div className="header-text">
                 <p id="header-text1"><a>Home</a> - <a>Semua Kategori</a></p>
                 <p id="header-text2">Orang yang mudah menyerah tidak akan menhsilkan sesuatu yang indah!</p>
@@ -60,7 +63,7 @@ function All_Course() {
             </div>
 
         </div>
-        
+        <Footer/>
     </div>
   )
 }

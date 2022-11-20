@@ -1,7 +1,9 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
-import './Course.css'
+import Footer from '../components/Footer'
+import Navbar from '../components/Navbar'
+
 
 const CoursePage = () => {
   const params = useParams()
@@ -17,7 +19,7 @@ const CoursePage = () => {
   return (
     
     <>
-      
+      <Navbar/>
         <div className="container" style={{  padding: '3%' }}>
           {course.map(el => (
             <div key={el.id}>
@@ -27,7 +29,9 @@ const CoursePage = () => {
               </div>
 
               <p>{el.Deskripsi}</p>
+            <Footer/>
             </div>
+            
           ))}
             
 

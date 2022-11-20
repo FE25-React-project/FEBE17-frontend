@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import './Course.css'
+
 import { useNavigate, useParams } from "react-router-dom"
 import axios from 'axios'
+import Navbar from '../components/Navbar'
+import Footer from '../components/Footer'
 
 
 function HomeCourse() {
@@ -23,7 +25,8 @@ function HomeCourse() {
     }
   return (
     <>
-        <div id="header" className='mb-4 p-6 bg-primary text-white'>
+    <Navbar/>
+        <div id="header-course" className='mb-4 p-6 bg-primary text-white'>
             <div className="header-text">
                 <p id="header-text2" style={{ fontSize: '40px', fontWeight: 700 }}>{params.Title}</p>
             </div>
@@ -79,6 +82,7 @@ function HomeCourse() {
             </div>
 
         </div>
+        <Footer/>
     </>
   )
 }

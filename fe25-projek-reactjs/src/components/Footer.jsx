@@ -18,7 +18,7 @@ const Footer = () => {
             <Link to={"/about"} className="text-white-50 mt-2">
               About
             </Link>
-            <Link to={"/portofolio"} className="text-white-50 mt-2">
+            <Link to={"/allcourse"} className="text-white-50 mt-2">
               Course
             </Link>
             <Link to={"/blog"} className="text-white-50 mt-2">
