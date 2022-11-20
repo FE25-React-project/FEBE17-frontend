@@ -10,13 +10,20 @@ import { Link } from "react-router-dom";
 const Header = () => {
 
   return (
-    <MDBNavbar expand='lg'  bgColor='light'>
+    <div className="sticky-top">
+      <MDBNavbar expand='lg'  bgColor='light'>
     <MDBContainer fluid>
       <nav aria-label='breadcrumb'>
         <MDBBreadcrumb>
           <MDBBreadcrumbItem>
             <Link to='/' >
             <a href='#'>Home</a>
+            </Link>
+            
+          </MDBBreadcrumbItem>
+          <MDBBreadcrumbItem>
+            <Link to='/allcourse' >
+            <a>Coures</a>
             </Link>
             
           </MDBBreadcrumbItem>
@@ -34,7 +41,8 @@ const Header = () => {
         </MDBBreadcrumb>
       </nav>
     </MDBContainer>
-  </MDBNavbar>
+    </MDBNavbar>
+    </div>
   );
 };
 
