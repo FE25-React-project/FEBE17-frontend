@@ -7,23 +7,23 @@ const Section3 = () => {
         <div className="d-flex">
           <div>
             
-            <img src="https://images.pexels.com/photos/3184430/pexels-photo-3184430.jpeg?auto=compress&cs=tinysrgb&w=1600" className="mb-4 rounded-5" width={200} height={160} alt="" />
+            <img src="https://images.pexels.com/photos/3184430/pexels-photo-3184430.jpeg?auto=compress&cs=tinysrgb&w=1600" className="mb-4 rounded-5" width={360} height={300} alt="" />
             <h3 className="mb-4">Koneksi</h3>
-            <p>
+            <p className="lh-lg">
             Jalin dan perluas koneksimu dengan para ahli dibidang seni
             </p>
           </div>
           <div>
            
-            <img src="https://images.pexels.com/photos/1038041/pexels-photo-1038041.jpeg?auto=compress&cs=tinysrgb&w=1600" className="mb-4 rounded-5" width={200} height={160} alt="" />
+            <img src="https://images.pexels.com/photos/1038041/pexels-photo-1038041.jpeg?auto=compress&cs=tinysrgb&w=1600" className="mb-4 rounded-5" width={360} height={300} alt="" />
              <h3 className="mb-4">Ruang Berekspresi</h3>
-            <p>Tuangkan pendapat dan ide-ide kreatif yang ada dalam dirimu ke dalam medium seni</p>
+            <p className="lh-lg">Tuangkan pendapat dan ide-ide kreatif yang ada dalam dirimu ke dalam medium seni</p>
           </div>
           <div>
             
-            <img src="https://images.pexels.com/photos/4706138/pexels-photo-4706138.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" className="mb-4 rounded-5" width={200} height={160} alt="" />
+            <img src="https://images.pexels.com/photos/4706138/pexels-photo-4706138.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" className="mb-4 rounded-5" width={360} height={300} alt="" />
             <h3 className="mb-4" >Pengalaman</h3>
-            <p>Dapatkan pengetahuan dan pengalaman baru dengan para ahli dibidang seni</p>
+            <p className="lh-lg">Dapatkan pengetahuan dan pengalaman baru dengan para ahli dibidang seni</p>
           </div>    
         </div>
       </div>

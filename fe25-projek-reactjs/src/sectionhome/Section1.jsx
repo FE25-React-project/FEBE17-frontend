@@ -1,22 +1,13 @@
 import { MDBBtn } from "mdb-react-ui-kit";
 const Section1 = () => {
   return (
-    <div
-        className='container-fluid text-center bg-image'
-        style={{ backgroundImage: "url('https://images.pexels.com/photos/354939/pexels-photo-354939.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')", height: '100vh',width: '100vw' }}
-      >
-        <div className='mask' style={{ backgroundColor: 'rgba(0, 0, 0, 0.6)' }}>
-          <div className='d-flex justify-content-center align-items-center h-100'>
-            <div className='text-white'>
-              <h1 className='mb-5'>Explore dan tingkatkan bakat senimu tanpa batas</h1>
-              <h4 className='mb-6'>Temukan dan kembangkan potensi yang ada dalam dirimu dengan  beragam kursus yang telah menantimu</h4>
-              <MDBBtn tag="a" >
-                Mulai belajar
-              </MDBBtn>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div className="align-items-center text-center">
+      <h5 className="mb-4 mt-5">PELAJARI LEBIH LANJUT</h5>
+      <h2 className="mb-4 mt-3 fw-bold">Kenali lebih dalam Seni daerah kamu</h2>
+      <p className="mb-4 mt-3 fs-6">Indonesia kaya akan berbagai kesenian dan seni rupa daerah. <br/>Mari Tingkatkan Pengetahuan dan lestarikan Kesenian daerah mu</p>
+    </div>
+
+
   );
 };
 
