@@ -9,6 +9,7 @@ import {
 import { ToastContainer, toast, Zoom, Bounce } from "react-toastify";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 import axios from "axios";
 const Registerpage = () => {
   const [email, setEmail] = useState("");
@@ -51,9 +52,9 @@ const Registerpage = () => {
             password: password,
           }
         );
-        toast.success("selamat kamu berhasil membuat akun" ,{
-          position: 'top-center'
-        } );
+        toast.success("selamat kamu berhasil membuat akun", {
+          position: "top-center",
+        });
         navigate("/login");
       } catch (error) {
         console.log(error);
@@ -63,78 +64,81 @@ const Registerpage = () => {
 
   return (
     <div className="container-fluid">
-      <ToastContainer />
-      <MDBContainer className="container-fluid">
-        <div className="d-flex flex-lg-row ">
-          <div className="col align-self-center ">
-            <h3 className="mb-5">
-              Create your account for unexpected experience
-            </h3>
-            <form onSubmit={SubmitForm}>
-              <label htmlFor="" className="mb-4">
-                Email
-              </label>
-              <MDBInput
-                label="Email input"
-                className="mb-3"
-                size="lg"
-                id="typeEmail"
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
+      <motion.div
 
-              <label htmlFor="" className="mb-4">
-                Password
-              </label>
-              <MDBInput
-                label="Password input"
-                id="typePassword"
-                size="lg"
-                className="mb-3"
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
+        className="d-flex"
+      >
+        <ToastContainer />
+        <MDBContainer className="container-fluid">
+          <div className="d-flex flex-lg-row ">
+            <div className="col align-self-center m-5 " id="register1">
+              <h3 className="mb-5">
+                Create your account for unexpected experience
+              </h3>
+              <form onSubmit={SubmitForm}>
+                <label htmlFor="" className="mb-4">
+                  Email
+                </label>
+                <MDBInput
+                  label="Email input"
+                  className="mb-3"
+                  size="lg"
+                  id="typeEmail"
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
 
-              <MDBBtn className="me-1 mx-6 mb-3 " type="submit" color="blue">
-                Register
-              </MDBBtn>
-            </form>
+                <label htmlFor="" className="mb-4">
+                  Password
+                </label>
+                <MDBInput
+                  label="Password input"
+                  id="typePassword"
+                  size="lg"
+                  className="mb-3"
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
 
-            <h6>
-              Your account is ready go to
-              <Link to="/login">
-                <MDBBadge className="ms-2">Login page</MDBBadge>
-              </Link>
-            </h6>
-          </div>          
-          <div className="col align-self-center  ">
-            <MDBCarousel showControls fade>
-              <MDBCarouselItem
-                className="w-100 d-block carouselfoto"
-                itemId={1}
-                src="https://images.pexels.com/photos/2253813/pexels-photo-2253813.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                alt="..."
-              />
-              <MDBCarouselItem
-                className="w-100 d-block carouselfoto"
-                itemId={2}
-                src="https://images.pexels.com/photos/931018/pexels-photo-931018.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                alt="..."
-              />
-              <MDBCarouselItem
-                className="w-100 d-block carouselfoto"
-                itemId={3}
-                src="https://images.pexels.com/photos/2474689/pexels-photo-2474689.jpeg?auto=compress&cs=tinysrgb&w=1600"
-                alt="..."
-              />
-            </MDBCarousel>
+                <MDBBtn className="me-1 mx-6 mb-3 " type="submit" color="blue">
+                  Register
+                </MDBBtn>
+              </form>
+
+              <h6>
+                Your account is ready go to
+                <Link to="/login">
+                  <MDBBadge className="ms-2">Login page</MDBBadge>
+                </Link>
+              </h6>
+            </div>
+            <div className="col align-self-center  ">
+              <MDBCarousel showControls fade>
+                <MDBCarouselItem
+                  className="w-100 d-block carouselfoto"
+                  itemId={1}
+                  src="https://images.pexels.com/photos/2253813/pexels-photo-2253813.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                  alt="..."
+                />
+                <MDBCarouselItem
+                  className="w-100 d-block carouselfoto"
+                  itemId={2}
+                  src="https://images.pexels.com/photos/931018/pexels-photo-931018.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                  alt="..."
+                />
+                <MDBCarouselItem
+                  className="w-100 d-block carouselfoto"
+                  itemId={3}
+                  src="https://images.pexels.com/photos/2474689/pexels-photo-2474689.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                  alt="..."
+                />
+              </MDBCarousel>
+            </div>
           </div>
-
-
-        </div>
-      </MDBContainer>
+        </MDBContainer>
+      </motion.div>
     </div>
   );
 };

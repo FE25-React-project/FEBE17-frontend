@@ -12,6 +12,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { Signin } from "../redux/action";
 import { useState } from "react";
 import { toast, Zoom } from "react-toastify";
+import { motion } from "framer-motion";
 const Loginpage = () => {
   const { user } = useSelector((state) => state.user);
   const [email, setEmail] = useState("");
@@ -43,7 +44,7 @@ const Loginpage = () => {
         theme: "light",
       });
       navigate("/");
-    }  else {
+    } else {
       toast.error("kamu belum punya akun", {
         autoClose: 1000,
         position: "top-center",
@@ -53,9 +54,19 @@ const Loginpage = () => {
   };
 
   return (
-    <MDBContainer className="container-fluid">
-      <div className="d-flex">
-        <div className="col align-self-center">
+    <MDBContainer className="container-fluid ">
+      <motion.div
+        animate={{
+          x: "-20px",
+          
+        }}
+        transition={{
+          type: "tween",
+          duration: 0.7,
+        }}
+        className="d-flex"
+      >
+        <div className="col align-self-center m-5">
           <h3 className="mb-5">WELCOME BACK</h3>
           <form onSubmit={SubmitForm}>
             <label htmlFor="" className="mb-4">
@@ -117,7 +128,7 @@ const Loginpage = () => {
             />
           </MDBCarousel>
         </div>
-      </div>
+      </motion.div>
     </MDBContainer>
   );
 };

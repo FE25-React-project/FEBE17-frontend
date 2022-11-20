@@ -12,8 +12,7 @@ import { Link } from "react-router-dom";
 const Header = () => {
   return (
     <MDBNavbar
-      expand="lg"
-      className="d-flex justify-content-evenly "
+      className="d-flex justify-content-evenly container-fluid "
       bgColor="light"
     >
       <div>
@@ -21,7 +20,7 @@ const Header = () => {
           <MDBPaginationItem>
             <MDBPaginationLink href="#">Login</MDBPaginationLink>
           </MDBPaginationItem>
-        </Link> 
+        </Link>
       </div>
       <div className="">
         <MDBContainer fluid>
@@ -33,11 +32,7 @@ const Header = () => {
                 </Link>
               </MDBBreadcrumbItem>
 
-              <MDBBreadcrumbItem active aria-current="page">
-                <Link to="/login">
-                  <a href="#">Login</a>
-                </Link>
-              </MDBBreadcrumbItem>
+
             </MDBBreadcrumb>
           </nav>
         </MDBContainer>
