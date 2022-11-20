@@ -114,7 +114,7 @@ const Registerpage = () => {
                 </Link>
               </h6>
             </div>
-            <div className="col align-self-center  ">
+            <div className="col align-self-center container-fluid  ">
               <MDBCarousel showControls fade>
                 <MDBCarouselItem
                   className="w-100 d-block carouselfoto"
@@ -125,7 +125,7 @@ const Registerpage = () => {
                 <MDBCarouselItem
                   className="w-100 d-block carouselfoto"
                   itemId={2}
-                  src="https://images.pexels.com/photos/931018/pexels-photo-931018.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                  src="https://images.pexels.com/photos/11191124/pexels-photo-11191124.jpeg?auto=compress&cs=tinysrgb&w=1600"
                   alt="..."
                 />
                 <MDBCarouselItem

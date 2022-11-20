@@ -12,7 +12,7 @@ const About = () => {
         exit={{ opacity: 1, x: -30 }}
         transition={{ duration: 1 }} >
       <Navbar/>
-      <Intro heading={"About Me"} description={"Yes, this is about ME"} />
+      <Intro heading={"About Us"} description={"Yes, this is about Us"} />
       <AboutUs />
       <Footer/>
       </motion.div>
