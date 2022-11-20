@@ -36,7 +36,7 @@ const Navbar = () => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link active mx-1 text-white" to={"/course"}>
+              <Link className="nav-link active mx-1 text-white" to={"/allcourse"}>
                 Course
               </Link>
             </li>

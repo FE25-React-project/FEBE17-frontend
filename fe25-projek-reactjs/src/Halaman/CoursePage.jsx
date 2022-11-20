@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
-
+import './Course.css'
 
 const CoursePage = () => {
   const params = useParams()

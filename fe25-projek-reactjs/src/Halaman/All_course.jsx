@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import ''
+import './Course.css'
 import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios';
-import img from './../asset/img/21559255_6465103.png'
+
 
 function All_Course() {  
   const [allCourse, setAllCourse] = useState([])
@@ -32,7 +32,7 @@ function All_Course() {
                 <p id="header-text3" >Pilih dan cari tahu bakatmu dengan beragam khursus menarik</p>
             </div>
 
-            <img src={img} className="img-fluid" alt="" width={450} />
+            <img src='https://github.com/FE25-React-project/reactProject-FE25/blob/dev_rajib/fe25-projek-reactjs/src/asset/img/21559255_6465103.png?raw=true' className="img-fluid" alt="" width={450} />
         </div>
 
         <div className="container">

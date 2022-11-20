@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import './../asset/css/style-course.css'
+import './Course.css'
 import { useNavigate, useParams } from "react-router-dom"
 import axios from 'axios'
-import img from './../asset/img/21559255_6465103.png'
+
 
 function HomeCourse() {
     const params = useParams()
@@ -28,7 +28,7 @@ function HomeCourse() {
                 <p id="header-text2" style={{ fontSize: '40px', fontWeight: 700 }}>{params.Title}</p>
             </div>
 
-            <img src={img} className="img-fluid" alt="" width={450} />
+            <img src='https://github.com/FE25-React-project/reactProject-FE25/blob/dev_rajib/fe25-projek-reactjs/src/asset/img/undraw_Educator_re_ju47.png?raw=true' className="img-fluid" alt="" width={450} />
 
             
         </div>
