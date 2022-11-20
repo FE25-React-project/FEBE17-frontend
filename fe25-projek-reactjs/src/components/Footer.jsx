@@ -83,16 +83,6 @@ const Footer = () => {
                   <MDBPaginationLink href="#">Home</MDBPaginationLink>
                 </MDBPaginationItem>
               </Link>
-              <Link to="/register">
-                <MDBPaginationItem>
-                  <MDBPaginationLink href="#">Register</MDBPaginationLink>
-                </MDBPaginationItem>
-              </Link>
-              <Link to="/login">
-                <MDBPaginationItem>
-                  <MDBPaginationLink href="#">Login</MDBPaginationLink>
-                </MDBPaginationItem>
-              </Link>
             </MDBPagination>
           </nav>
         </section>

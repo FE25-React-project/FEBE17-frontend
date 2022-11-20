@@ -1,16 +1,18 @@
 import './App.css';
-
-import Header from './components/Header';
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Routerapp from './Router';
 import Footer from './components/Footer';
+import Header from './components/Header';
 
 function App() {
   return (
-    <div className="App">
+    <div className="" 
+    >
       <Header/>
         <Routerapp/>
        <Footer/>
+       <ToastContainer/>
     </div>
   );
 }
