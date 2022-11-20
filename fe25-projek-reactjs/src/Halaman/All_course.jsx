@@ -5,7 +5,7 @@ import axios from 'axios';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
-
+import { motion } from 'framer-motion';
 function All_Course() {  
   const [allCourse, setAllCourse] = useState([])
   const navigate = useNavigate()
@@ -26,10 +26,13 @@ function All_Course() {
   }
 
   return (
-    <div>
+    <motion.div       initial={{ opacity: 0, y: 30}}
+    animate={{ opacity: 2, y: 0 }}
+    exit={{ opacity: 2, y: -30 }}
+    transition={{ duration: 1.5 }}>
         <Navbar/>
-      <div id="header-course" className='mb-4 p-5 bg-primary text-white'>
-            <div className="header-text">
+      <div id="header-course" className='mb-4 p-5 bg-white text-white'>
+            <div className="header-text text-black">
                 <p id="header-text1"><a>Home</a> - <a>Semua Kategori</a></p>
                 <p id="header-text2">Orang yang mudah menyerah tidak akan menhsilkan sesuatu yang indah!</p>
                 <p id="header-text3" >Pilih dan cari tahu bakatmu dengan beragam khursus menarik</p>
@@ -38,7 +41,7 @@ function All_Course() {
             <img src='https://github.com/FE25-React-project/reactProject-FE25/blob/dev_rajib/fe25-projek-reactjs/src/asset/img/21559255_6465103.png?raw=true' className="img-fluid" alt="" width={450} />
         </div>
 
-        <div className="container">
+        <div className="container align-items-center text-center ">
           <p
             style={{  
               fontSize: '28px',
@@ -47,7 +50,7 @@ function All_Course() {
             }}
           > Kelas Tersedia</p>
 
-            <div className="row row-cols-1 row-cols-md-4 g-4 mb-4">
+            <div className="row row-cols-1 row-cols-md-4 g-4 mb-4 align-items-center ">
               {allCourse.map(el => (
                 <div className="col" key={el.id}>
                   <div className="card h-100">
@@ -64,7 +67,7 @@ function All_Course() {
 
         </div>
         <Footer/>
-    </div>
+    </motion.div>
   )
 }
 
