@@ -20,10 +20,10 @@ const CoursePage = () => {
     
     <>
       <Navbar/>
-        <div className="container" style={{  padding: '3%' }}>
+        <div className=" align-items-center container-fluid" style={{  padding: '3%' }}>
           {course.map(el => (
             <div key={el.id}>
-              <h5 className='mt-5 mb-5'>{el.Title}</h5>
+              <h5 className='mt-5 mb-5 text-center'>{el.Title}</h5>
               <div className="ratio ratio-21x9 mt-3 mb-4">
                   <iframe src={el.video} title="YouTube video"></iframe>
               </div>

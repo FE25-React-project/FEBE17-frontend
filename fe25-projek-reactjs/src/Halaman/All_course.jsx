@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-import { Link, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import axios from 'axios';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -31,11 +31,11 @@ function All_Course() {
     exit={{ opacity: 2, y: -30 }}
     transition={{ duration: 1.5 }}>
         <Navbar/>
-      <div id="header-course" className='mb-4 p-5 bg-white text-white'>
-            <div className="header-text text-black">
-                <p id="header-text1"><a>Home</a> - <a>Semua Kategori</a></p>
-                <p id="header-text2">Orang yang mudah menyerah tidak akan menhsilkan sesuatu yang indah!</p>
-                <p id="header-text3" >Pilih dan cari tahu bakatmu dengan beragam khursus menarik</p>
+      <div id="header-course" className='mb-4 p-5 bg-white text-white container-xl'>
+            <div className="header-text text-black text-start mt-5">
+                <p id="header-text1"></p>
+                <p className='fs-3' id="header-text2">Orang yang mudah menyerah tidak akan menghasilkan sesuatu yang indah!</p>
+                <p className='fs-6' id="header-text3" >Pilih dan cari tahu bakatmu dengan beragam khursus menarik</p>
             </div>
 
             <img src='https://github.com/FE25-React-project/reactProject-FE25/blob/dev_rajib/fe25-projek-reactjs/src/asset/img/21559255_6465103.png?raw=true' className="img-fluid" alt="" width={450} />
@@ -46,11 +46,11 @@ function All_Course() {
             style={{  
               fontSize: '28px',
               fontWeight: '700',
-              color: '#9D9D9D' 
+              color: 'black' 
             }}
           > Kelas Tersedia</p>
 
-            <div className="row row-cols-1 row-cols-md-4 g-4 mb-4 align-items-center ">
+            <div className="row row-cols-1 row-cols-md-3 g-5 mb-4 align-items-center ">
               {allCourse.map(el => (
                 <div className="col" key={el.id}>
                   <div className="card h-100">
