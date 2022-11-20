@@ -4,7 +4,7 @@ import { useNavigate, useParams } from "react-router-dom"
 import axios from 'axios'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
-
+import { motion } from 'framer-motion'
 
 function HomeCourse() {
     const params = useParams()
@@ -24,7 +24,10 @@ function HomeCourse() {
         navigate(`${Title}/${id}`)
     }
   return (
-    <>
+    <motion.div       initial={{ opacity: 0, y: 30}}
+    animate={{ opacity: 2, y: 0 }}
+    exit={{ opacity: 2, y: -30 }}
+    transition={{ duration: 1.5 }}>
     <Navbar/>
         <div id="header-course" className='mb-4 mt-5  bg-white text-black container-fluid'>
             <div className="header-text">
@@ -83,7 +86,7 @@ function HomeCourse() {
 
         </div>
         <Footer/>
-    </>
+    </motion.div>
   )
 }
 
