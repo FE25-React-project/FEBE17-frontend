@@ -23,5 +23,5 @@ margin: 150px;
     position: relative;
 
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }

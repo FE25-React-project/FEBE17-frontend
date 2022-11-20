@@ -56,7 +56,7 @@ function All_Course() {
                   <div className="card h-100">
                     <img src={el.Img} className="card-img-top" alt="..."/>
                     <div className="card-body">
-                      <h5 className="card-title">{el.Title}</h5>
+                      <h5 className="card-title ">{el.Title}</h5>
                       <p>{el.DescTitle}</p>
                       <button type="button" className="btn btn-primary" onClick={() => handleClick(el.id, el.Title)}>Selengkapnya...</button>
                     </div>

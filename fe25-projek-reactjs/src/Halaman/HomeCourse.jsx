@@ -26,7 +26,7 @@ function HomeCourse() {
   return (
     <>
     <Navbar/>
-        <div id="header-course" className='mb-4 p-6 bg-white text-black'>
+        <div id="header-course" className='mb-4 mt-5  bg-white text-black container-fluid'>
             <div className="header-text">
                 <p id="header-text2" style={{ fontSize: '40px', fontWeight: 700 }}>{params.Title}</p>
             </div>
