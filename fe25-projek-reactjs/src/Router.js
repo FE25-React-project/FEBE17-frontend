@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import  { Routes,Route } from 'react-router-dom'
 import All_Course from './Halaman/All_Course';
 import CoursePage from './Halaman/CoursePage';
@@ -27,23 +26,3 @@ const Routerapp = () => {
 }
 
 export default Routerapp;
-=======
-import { Routes, Route } from "react-router-dom";
-import Homepage from "./Halaman/Homepage";
-import Loginpage from "./Halaman/Loginpage";
-import Registerpage from "./Halaman/Registerpage";
-import { motion } from "framer-motion";
-const Routerapp = () => {
-  return (
-    <div>
-      <Routes>
-        <Route path="/" element={<Homepage />} />
-        <Route path="/login" element={<Loginpage />} />
-        <Route path="/register" element={<Registerpage />} />
-      </Routes>
-    </div>
-  );
-};
-
-export default Routerapp;
->>>>>>> 213200bdee51943b9125eb6675c3887264d97d3c
