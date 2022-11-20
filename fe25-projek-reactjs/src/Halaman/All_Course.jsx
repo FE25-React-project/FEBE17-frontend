@@ -11,7 +11,7 @@ function All_Course() {
   useEffect(() => {
     axios("https://63547f47e64783fa8285a355.mockapi.io//Course")
     .then(res => {
-      console.log(res.data);
+      // console.log(res.data);
       setAllCourse(res.data)
     })
   }, []);
