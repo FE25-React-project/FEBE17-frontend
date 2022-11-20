@@ -13,6 +13,7 @@ import { Signin } from "../redux/action";
 import { useState } from "react";
 import { toast, Zoom } from "react-toastify";
 import { motion } from "framer-motion";
+import Navbar from "../components/Navbar";
 const Loginpage = () => {
   const { user } = useSelector((state) => state.user);
   const [email, setEmail] = useState("");
@@ -55,6 +56,7 @@ const Loginpage = () => {
 
   return (
     <MDBContainer className="container-fluid ">
+        
       <motion.div
         animate={{
           x: "-20px",
