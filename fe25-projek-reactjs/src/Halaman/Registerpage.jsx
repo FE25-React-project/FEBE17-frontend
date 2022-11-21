@@ -47,7 +47,7 @@ const Registerpage = () => {
         const response = await axios.post(
           "https://634e3b4bf34e1ed82686101c.mockapi.io/USER_ACCOUNT",
           {
-            autoClose: 1800,
+            
             email: email,
             password: password,
           }
@@ -63,7 +63,12 @@ const Registerpage = () => {
   };
 
   return (
-    <div className="container-fluid">
+    <motion.div
+    initial={{ opacity: 0, x: -30 }}
+    animate={{ opacity: 2, x: 0 }}
+    exit={{ opacity: 2, x: 30 }}
+    transition={{ duration: 1.2 }}
+   className="container-fluid">
       <motion.div
 
         className="d-flex"
@@ -139,7 +144,7 @@ const Registerpage = () => {
           </div>
         </MDBContainer>
       </motion.div>
-    </div>
+    </motion.div>
   );
 };
 

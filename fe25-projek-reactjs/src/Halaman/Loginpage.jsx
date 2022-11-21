@@ -13,7 +13,7 @@ import { Signin } from "../redux/action";
 import { useState } from "react";
 import { toast, Zoom } from "react-toastify";
 import { motion } from "framer-motion";
-import Navbar from "../components/Navbar";
+
 const Loginpage = () => {
   const { user } = useSelector((state) => state.user);
   const [email, setEmail] = useState("");
@@ -35,7 +35,7 @@ const Loginpage = () => {
       localStorage.setItem("user", JSON.stringify(cariAkun));
       toast.success(" Selamat kamu berhasil login!", {
         position: "top-center",
-        autoClose: 2000,
+        autoClose: 1000,
         hideProgressBar: false,
         transition: Zoom,
         closeOnClick: true,
@@ -58,14 +58,10 @@ const Loginpage = () => {
     <MDBContainer className="container-fluid ">
         
       <motion.div
-        animate={{
-          x: "-20px",
-          
-        }}
-        transition={{
-          type: "tween",
-          duration: 0.7,
-        }}
+    initial={{ opacity: 0, x: -30 }}
+    animate={{ opacity: 2, x: 0 }}
+    exit={{ opacity: 2, x: 30 }}
+    transition={{ duration: 1.2 }}
         className="d-flex"
       >
         <div className="col align-self-center m-5">

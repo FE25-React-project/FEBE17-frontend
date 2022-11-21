@@ -7,18 +7,18 @@ export const Signinberhasil = (user) =>{
         user,
     }
 }
-export const Signupberhasil = (user) =>{
-    return {
-        type: REGISTER_UP,
-        user,
-    }
-}
-export const Signup =(user)=>{
-return async (dispatch) =>{
-    const response = await axios.post('https://634e3b4bf34e1ed82686101c.mockapi.io/USER_ACCOUNT',user)
-    dispatch(Signupberhasil( response.data))
-}
-}
+// export const Signupberhasil = (user) =>{
+//     return {
+//         type: REGISTER_UP,
+//         user,
+//     }
+// }
+// export const Signup =(user)=>{
+// return async (dispatch) =>{
+//     const response = await axios.post('https://634e3b4bf34e1ed82686101c.mockapi.io/USER_ACCOUNT',user)
+//     dispatch(Signupberhasil( response.data))
+// }
+// }
 
 export const Signin = (user) => {
 return async (dispatch ) =>{
