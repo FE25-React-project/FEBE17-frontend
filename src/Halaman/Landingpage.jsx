@@ -27,7 +27,7 @@ const Landingpage = () => {
                   color: "rgba(54, 255, 54, 0.8)",
                 }}
               >
-                Explore dan tingkatkan bakat senimu tanpa batas
+                Once you learn about art, you will never find the end
               </h1>
 
               <p
