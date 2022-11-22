@@ -88,7 +88,7 @@ const Loginpage = () => {
               id="typePassword"
               size="lg"
               className="mb-3"
-              type="text"
+              type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />

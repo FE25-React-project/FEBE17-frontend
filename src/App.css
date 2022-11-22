@@ -31,3 +31,13 @@ margin: 150px;
     
      width: calc(100vw/3);
 }
+
+#editCard{
+    margin-bottom: 150px;
+    padding-bottom: 100px;
+}
+#cardimg{
+    object-fit: cover;
+    height: 240px;
+    width: 400px ;
+}
