@@ -16,10 +16,10 @@ const Routerapp = () => {
   return (
     <div>
       <Routes>
-        <Route path="/landingpage" element={<Landingpage />} />
+        <Route path="/" element={<Landingpage />} />
         <Route path="/login" element={<Loginpage />} />
         <Route path="/register" element={<Registerpage />} />
-        <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/allcourse">

@@ -17,7 +17,7 @@ const Navbar = () => {
   return (
     <nav className={color ? "navbar navbar-expand-lg fixed-top navbar-dark nav-bg" : "navbar navbar-expand-lg fixed-top navbar-dark"}>
       <div className="container">
-        <Link className="navbar-brand fw-bold fs-4" to={"/"}>
+        <Link className="navbar-brand fw-bold fs-4" to={"/home"}>
           UrArtCourse
         </Link>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,7 +26,7 @@ const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <Link className="nav-link active mx-1" aria-current="page" to={"/"}>
+              <Link className="nav-link active mx-1" aria-current="page" to={"/home"}>
                 Home
               </Link>
             </li>

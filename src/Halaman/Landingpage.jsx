@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-
+import { MDBBtn } from "mdb-react-ui-kit";
+import Landingpagesection from "../components/Landingpagesection";
 const Landingpage = () => {
   return (
     <motion.div
@@ -20,7 +21,7 @@ const Landingpage = () => {
           <div className="row">
             <div className="col text-center">
               <h1
-                className=" fw-bold mb-4 text-opacity-60"
+                className=" fw-bold mb-4 text-opacity-60 hover-shadow"
                 style={{
                   fontSize: "43px",
                   color: "rgba(54, 255, 54, 0.8)",
@@ -35,35 +36,39 @@ const Landingpage = () => {
                   fontSize: "23px",
                   color: "white",
                 }}
+                
               >
                 Art is never finished, only abandoned.
                 <br />― Leonardo da Vinci
               </p>
               <motion.div
-                whileHover={{ scale: 1.2, duration: 1.5 }}
+                whileHover={{ scale: 1.1, duration: 1.5 }}
                 transition={{
                   type: "spring",
-                  damping: 12,
-                  stiffness: 400,
+                  damping: 10,
+                  stiffness: 600,
                   duration: 1.5,
                 }}
-                className="btn-white rounded-3 p-2"
+                className="btn-white rounded-3 p-2 box"
               >
                 <Link
                   to={"/login"}
                   style={{
-                    fontSize: "14px",
+                    fontSize: "9px",
                     color: "white",
                   }}
                   className="p-2 mt-3 fw-bold  "
                 >
-                  Click me to explore!
+                  <MDBBtn rippleRadius={10} size="lg">
+                    Click me to start exploring
+                  </MDBBtn>
                 </Link>
               </motion.div>
             </div>
           </div>
         </div>
       </div>
+      <Landingpagesection className="mask" />
     </motion.div>
   );
 };

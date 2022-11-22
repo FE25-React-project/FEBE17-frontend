@@ -12,7 +12,7 @@ const Footer = () => {
           </div>
           <div className="col col-lg-2 d-flex flex-column mb-lg-0 mb-4">
             <h5 className="fw-bold text-white">Menu</h5>
-            <Link to={"/"} className="text-white-50 mt-3">
+            <Link to={"/home"} className="text-white-50 mt-3">
               Home
             </Link>
             <Link to={"/about"} className="text-white-50 mt-2">

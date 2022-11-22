@@ -25,3 +25,9 @@ margin: 150px;
     display: flex;
     justify-content: space-evenly;
 }
+
+#lpimage{
+    object-fit: cover;
+    
+     width: calc(100vw/3);
+}
