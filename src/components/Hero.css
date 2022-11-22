@@ -7,7 +7,7 @@
   }
   
  #landingpage {
-    background-image: linear-gradient(rgba(75, 75, 75, 0.438), rgba(0, 0, 0, 0.8)), url('https://images.pexels.com/photos/1053687/pexels-photo-1053687.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.438), rgba(0, 0, 0, 0.8)), url('https://images.pexels.com/photos/3527786/pexels-photo-3527786.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
     background-size: cover;
     background-repeat: no-repeat;
     width: 100%;
@@ -16,5 +16,8 @@
   #p-header{
     color: chartreuse;
     margin-top: 200px;
+    font-family: 'Kolker Brush', cursive;
   }
   
+
+  @import url('https://fonts.googleapis.com/css2?family=Kolker+Brush&display=swap');
