@@ -44,7 +44,7 @@ const Loginpage = () => {
         progress: undefined,
         theme: "light",
       });
-      navigate("/");
+      navigate("/home");
     } else {
       toast.error("kamu belum punya akun", {
         autoClose: 1000,
