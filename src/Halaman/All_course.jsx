@@ -75,7 +75,7 @@ function All_Course() {
                   <p>{el.DescTitle}</p>
                   <button
                     type="button"
-                    className="btn btn-primary"
+                    className="btn btn-light"
                     onClick={() => handleClick(el.id, el.Title)}
                   >
                     Selengkapnya...

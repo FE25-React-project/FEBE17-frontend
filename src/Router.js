@@ -12,10 +12,12 @@ import HomeCourse from "./Halaman/HomeCourse";
 import CoursePage from "./Halaman/CoursePage";
 import Landingpage from "./Halaman/Landingpage";
 
+
 const Routerapp = () => {
   return (
     <div>
       <Routes>
+   
         <Route path="/" element={<Landingpage />} />
         <Route path="/login" element={<Loginpage />} />
         <Route path="/register" element={<Registerpage />} />

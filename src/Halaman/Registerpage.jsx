@@ -47,7 +47,6 @@ const Registerpage = () => {
         const response = await axios.post(
           "https://634e3b4bf34e1ed82686101c.mockapi.io/USER_ACCOUNT",
           {
-            
             email: email,
             password: password,
           }
@@ -64,15 +63,14 @@ const Registerpage = () => {
 
   return (
     <motion.div
-    initial={{ opacity: 0, x: -30 }}
-    animate={{ opacity: 2, x: 0 }}
-    exit={{ opacity: 2, x: 30 }}
-    transition={{ duration: 1.2 }}
-   className="container-fluid">
-      <motion.div
-
-        className="d-flex"
-      >
+      initial={{ opacity: 0, x: -30 }}
+      animate={{ opacity: 2, x: 0 }}
+      exit={{ opacity: 2, x: 30 }}
+      transition={{ duration: 1.2 }}
+      className="container-xxl"
+      id="testerregis"
+    >
+      <motion.div className="d-flex align-items-center">
         <ToastContainer />
         <MDBContainer className="container-fluid">
           <div className="d-flex flex-lg-row ">
@@ -101,13 +99,13 @@ const Registerpage = () => {
                   label="Password input"
                   id="typePassword"
                   size="lg"
-                  className="mb-3"
+                  className="mb-4"
                   type="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
 
-                <MDBBtn className="me-1 mx-6 mb-3 " type="submit" color="blue">
+                <MDBBtn className="me-1 mx-6 mb-4" type="submit" color="blue">
                   Register
                 </MDBBtn>
               </form>
@@ -150,16 +148,3 @@ const Registerpage = () => {
 
 export default Registerpage;
 
-// if (e.target.email.value === "" && e.target.password.value === "") {
-//     alert("form tidak boleh kosong, silahkan isi form dibawah ini");
-// } else {
-//   alert("berhasil register").then((response)=>{
-//       if(response){
-//         console.log(response);
-//         dispatch(Signup({
-//           email: email,
-//           password: password,
-//         }))
-//       }
-//   })
-// }

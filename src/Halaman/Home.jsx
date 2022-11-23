@@ -7,6 +7,8 @@ import Section3 from "../sectionhome/Section3";
 import Section4 from "../sectionhome/Section4";
 import Section1 from "../sectionhome/Section1";
 import Section5 from "../sectionhome/section5";
+import Carousel from "../sectionhome/Carousel";
+import Carouseledit from "../sectionhome/Carousel";
 const Home = () => {
     return ( 
         <motion.div 
@@ -20,7 +22,9 @@ const Home = () => {
             <Section3/>
             <Section4/>
             <Section1/>
+            <Carouseledit/>
             <Section5/>
+
             <Footer/>
         </motion.div>
      );
