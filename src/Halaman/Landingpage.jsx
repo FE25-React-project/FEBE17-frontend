@@ -52,7 +52,7 @@ const Landingpage = () => {
                 className="btn-white rounded-3 p-2 box"
               >
                 <Link
-                  to={"/login"}
+                  to={"/home"}
                   style={{
                     fontSize: "9px",
                     color: "white",
