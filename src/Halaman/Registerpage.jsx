@@ -14,6 +14,8 @@ import axios from "axios";
 const Registerpage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [fullname, setFullname] = useState('');
+  const [confirmpassword, setConfirmpassword] = useState('')
   const navigate = useNavigate();
   const SubmitForm = async (e) => {
     e.preventDefault();
@@ -42,13 +44,22 @@ const Registerpage = () => {
         position: "top-center",
         transition: Bounce,
       });
-    } else {
+    } else if(password !== confirmpassword){
+      toast.warning("password tidak sama", {
+        autoClose: 1000,
+        position: "top-center",
+        transition: Bounce,
+      });
+    } 
+    else {
       try {
         const response = await axios.post(
           "https://634e3b4bf34e1ed82686101c.mockapi.io/USER_ACCOUNT",
           {
+            fullname: fullname,
             email: email,
             password: password,
+            confirmpassword : confirmpassword,
           }
         );
         toast.success("selamat kamu berhasil membuat akun", {
@@ -60,25 +71,49 @@ const Registerpage = () => {
       }
     }
   };
+  const [type, setType] = useState("password");
+
+  const [icon, setIcon] = useState("fa-solid fa-eye-slash");
+
+  const show = () => {
+    type === "password" ? setType("text") : setType("password");
+    icon === "fa-solid fa-eye"
+      ? setIcon("fa-solid fa-eye-slash")
+      : setIcon("fa-solid fa-eye");
+  };
+
 
   return (
-    <motion.div
+    <div className=" ">
+       <motion.div
       initial={{ opacity: 0, x: -30 }}
       animate={{ opacity: 2, x: 0 }}
       exit={{ opacity: 2, x: 30 }}
       transition={{ duration: 1.2 }}
-      className="container-xxl"
+      className="container-xxl   "
       id="testerregis"
     >
-      <motion.div className="d-flex align-items-center">
+      <motion.div className="d-flex align-items-center border border-1 py-5 px-5 shadow-5">
         <ToastContainer />
-        <MDBContainer className="container-fluid">
+        <MDBContainer className="container-fluid ">
           <div className="d-flex flex-lg-row ">
             <div className="col align-self-center m-5 " id="register1">
               <h3 className="mb-5">
                 Create your account for unexpected experience
               </h3>
               <form onSubmit={SubmitForm}>
+              <label htmlFor="" className="mb-4">
+                  Fullname
+                </label>
+                <MDBInput
+                  label="Fullname"
+                  className="mb-3"
+                  size="lg"
+                  id="typeEmail"
+                  type="text"
+                  value={fullname}
+                  onChange={(e) => setFullname(e.target.value)}
+                />
                 <label htmlFor="" className="mb-4">
                   Email
                 </label>
@@ -95,15 +130,35 @@ const Registerpage = () => {
                 <label htmlFor="" className="mb-4">
                   Password
                 </label>
-                <MDBInput
-                  label="Password input"
-                  id="typePassword"
-                  size="lg"
-                  className="mb-4"
-                  type="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                />
+                <div className="input ">
+                  <MDBInput
+                    label="Password input"
+                    id="typePassword"
+                    size="lg"
+                    className="input "
+                    type={type}
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
+                  <i onClick={show} id='i'  className={icon}></i>
+                </div>
+                <label htmlFor="" className="mb-4">
+                  Confirm  Password
+                </label>
+                <div className="input ">
+
+                  <MDBInput
+                    label="Confirm Password input"
+                    id="typePassword"
+                    size="lg"
+                    className="input "
+                    type={type}
+                    value={confirmpassword}
+                    onChange={(e) => setConfirmpassword(e.target.value)}
+                  />
+                  <i onClick={show} id='i'  className={icon}></i>
+                </div>
+                
 
                 <MDBBtn className="me-1 mx-6 mb-4" type="submit" color="blue">
                   Register
@@ -143,6 +198,8 @@ const Registerpage = () => {
         </MDBContainer>
       </motion.div>
     </motion.div>
+    </div>
+   
   );
 };
 

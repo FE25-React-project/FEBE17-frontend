@@ -13,18 +13,22 @@ import { ToastContainer } from "react-toastify";
 const Loginpage = () => {
   const { user } = useSelector((state) => state.user);
   const [email, setEmail] = useState("");
+  const [fullname, setFullname] = useState("");
+  const [useratauemail, setUseratauemail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   useEffect(() => {
-    dispatch(Signin(email, password));
+    dispatch(Signin(email, password, fullname));
   }, []);
 
   const SubmitForm = (e) => {
     e.preventDefault();
     const cariAkun = user.find(
-      (item) => item.email === email && item.password === password
+      (item) =>
+        (item.email === email && item.password === password) ||
+        (item.fullname === fullname && item.password === password)
     );
 
     if (cariAkun) {
@@ -49,6 +53,20 @@ const Loginpage = () => {
       });
     }
   };
+  // const [show,setShow] = useState(false)
+  // const showButton = () =>{
+  //   setShow(!show)
+  // }
+  const [type, setType] = useState("password");
+  const [icon, setIcon] = useState("fa-solid fa-eye-slash");
+
+  const show = () => {
+    type === "password" ? setType("text") : setType("password");
+    icon === "fa-solid fa-eye"
+      ? setIcon("fa-solid fa-eye-slash")
+      : setIcon("fa-solid fa-eye");
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, x: -30 }}
@@ -58,12 +76,17 @@ const Loginpage = () => {
       className="container-xxl"
       id="testerregis2"
     >
-      <motion.div className="d-flex align-items-center">
+      <motion.div
+        className="d-flex align-items-center border border-1 py-5 px-5 shadow-5 "
+        id="loginmotion"
+      >
         <ToastContainer />
         <MDBContainer className="container-fluid">
           <div className="d-flex flex-lg-row ">
             <div className="col align-self-center m-5 " id="register2">
-              <h3 className="mb-5 text-warning  fw-bolder " id="judullogin">Hola! <span className="text-black fw-light ">Welcome back</span></h3>
+              <h3 className="mb-5 text-warning  fw-bolder " id="judullogin">
+                Hola! <span className="text-black fw-light ">Welcome back</span>
+              </h3>
               <form onSubmit={SubmitForm}>
                 <label htmlFor="" className="mb-4">
                   Email
@@ -78,18 +101,21 @@ const Loginpage = () => {
                   onChange={(e) => setEmail(e.target.value)}
                 />
 
-                <label htmlFor="" className="mb-4">
+                <label htmlFor="" className="mb-4 ">
                   Password
                 </label>
-                <MDBInput
-                  label="Password input"
-                  id="typePassword"
-                  size="lg"
-                  className="mb-4"
-                  type="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                />
+                <div className="input ">
+                  <MDBInput
+                    label="Password input"
+                    id="typePassword"
+                    size="lg"
+                    className="input "
+                    type={type}
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
+                  <i onClick={show} id="i" className={icon}></i>
+                </div>
 
                 <MDBBtn className="me-1 mx-6 mb-4 " type="submit" color="blue">
                   Login
@@ -108,23 +134,18 @@ const Loginpage = () => {
             <div className="col align-self-center container-fluid  ">
               <MDBCarousel showControls fade>
                 <MDBCarouselItem
-                  className="w-100 d-block carouselfoto"
+                  className=" w-100 d-block carouselfotologin"
                   itemId={1}
-                  src="https://images.pexels.com/photos/3348363/pexels-photo-3348363.jpeg?auto=compress&cs=tinysrgb&w=1600"
-                  alt="..."
-                />
-                <MDBCarouselItem
-                  className="w-100 d-block carouselfoto"
-                  itemId={2}
                   src="https://images.pexels.com/photos/2499699/pexels-photo-2499699.jpeg?auto=compress&cs=tinysrgb&w=1600"
                   alt="..."
                 />
                 <MDBCarouselItem
-                  className="w-100 d-block carouselfoto"
-                  itemId={3}
-                  src="https://images.pexels.com/photos/3229454/pexels-photo-3229454.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                  className=" w-100 d-block carouselfotologin"
+                  itemId={2}
+                  src="https://images.pexels.com/photos/5282269/pexels-photo-5282269.jpeg?auto=compress&cs=tinysrgb&w=1600"
                   alt="..."
                 />
+
               </MDBCarousel>
             </div>
           </div>
