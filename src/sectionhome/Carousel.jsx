@@ -66,9 +66,7 @@ const Carouseledit = () => {
         </div>
         <div>
           <img
-            src="https://i.pinimg.com/564x/57/07/1c/57071c43abc767c7106a2a24c6f7853c.jpg
- "          
-            
+            src="https://i.pinimg.com/564x/57/07/1c/57071c43abc767c7106a2a24c6f7853c.jpg"
             id="carouselfoto"
             class="card-img-top hover-zoom"
             alt="Fissure in Sandstone"
