@@ -4,7 +4,7 @@ import {
   MDBInput,
   MDBCarousel,
   MDBCarouselItem,
-  MDBBadge,
+  MDBBadge,MDBInputGroup
 } from "mdb-react-ui-kit";
 import { ToastContainer, toast, Zoom, Bounce } from "react-toastify";
 import { useState } from "react";
@@ -130,34 +130,27 @@ const Registerpage = () => {
                 <label htmlFor="" className="mb-4">
                   Password
                 </label>
-                <div className="input ">
-                  <MDBInput
-                    label="Password input"
-                    id="typePassword"
-                    size="lg"
-                    className="input "
+                <MDBInputGroup className="mb-3" size='lg' textAfter={<i onClick={show} id="i" className={icon}></i>}>
+                  <input
+                    className="form-control"
                     type={type}
+                    placeholder="Password Input"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                   />
-                  <i onClick={show} id='i'  className={icon}></i>
-                </div>
+                </MDBInputGroup>
                 <label htmlFor="" className="mb-4">
                   Confirm  Password
                 </label>
-                <div className="input ">
-
-                  <MDBInput
-                    label="Confirm Password input"
-                    id="typePassword"
-                    size="lg"
-                    className="input "
+                <MDBInputGroup className="mb-3" size='lg' textAfter={<i onClick={show} id="i" className={icon}></i>}>
+                  <input
+                    className="form-control"
                     type={type}
+                    placeholder="Confirm Password Input"
                     value={confirmpassword}
                     onChange={(e) => setConfirmpassword(e.target.value)}
                   />
-                  <i onClick={show} id='i'  className={icon}></i>
-                </div>
+                </MDBInputGroup>
                 
 
                 <MDBBtn className="me-1 mx-6 mb-4" type="submit" color="blue">

@@ -1,7 +1,14 @@
 import { motion } from "framer-motion";
 import { MDBCarousel, MDBCarouselItem } from "mdb-react-ui-kit";
 
-import { MDBBtn, MDBBadge, MDBContainer, MDBInput } from "mdb-react-ui-kit";
+import {
+  MDBBtn,
+  MDBBadge,
+  MDBContainer,
+  MDBInput,
+  MDBInputGroup,
+  MDBCheckbox,
+} from "mdb-react-ui-kit";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
@@ -91,32 +98,30 @@ const Loginpage = () => {
                 <label htmlFor="" className="mb-4">
                   Email
                 </label>
-                <MDBInput
-                  label="Email input"
-                  className="mb-3"
-                  size="lg"
-                  id="typeEmail"
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
+                <MDBInputGroup className="mb-3"  size='lg' >
+                  <input
+                    className="form-control"
+                    type="Email"
+                    placeholder="Email Input"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    
+                  />
+                </MDBInputGroup>
 
                 <label htmlFor="" className="mb-4 ">
                   Password
                 </label>
-                <div className="input ">
-                  <MDBInput
-                    label="Password input"
-                    id="typePassword"
-                    size="lg"
-                    className="input "
+
+                <MDBInputGroup className="mb-3" size='lg' textAfter={<i onClick={show} id="i" className={icon}></i>}>
+                  <input
+                    className="form-control"
                     type={type}
+                    placeholder="Password Input"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                   />
-                  <i onClick={show} id="i" className={icon}></i>
-                </div>
-
+                </MDBInputGroup>
                 <MDBBtn className="me-1 mx-6 mb-4 " type="submit" color="blue">
                   Login
                 </MDBBtn>
@@ -132,7 +137,7 @@ const Loginpage = () => {
               </h6>
             </div>
             <div className="col align-self-center container-fluid  ">
-              <MDBCarousel showControls >
+              <MDBCarousel showControls>
                 <MDBCarouselItem
                   className=" w-100 d-block carouselfotologin"
                   itemId={1}
