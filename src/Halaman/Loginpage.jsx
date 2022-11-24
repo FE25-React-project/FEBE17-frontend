@@ -77,7 +77,7 @@ const Loginpage = () => {
       id="testerregis2"
     >
       <motion.div
-        className="d-flex align-items-center border border-1 py-5 px-5 shadow-5 "
+        className="d-flex align-items-center border border-1 pb-5 py-5 px-5 shadow-5 "
         id="loginmotion"
       >
         <ToastContainer />
@@ -132,7 +132,7 @@ const Loginpage = () => {
               </h6>
             </div>
             <div className="col align-self-center container-fluid  ">
-              <MDBCarousel showControls fade>
+              <MDBCarousel showControls >
                 <MDBCarouselItem
                   className=" w-100 d-block carouselfotologin"
                   itemId={1}
@@ -145,7 +145,12 @@ const Loginpage = () => {
                   src="https://images.pexels.com/photos/5282269/pexels-photo-5282269.jpeg?auto=compress&cs=tinysrgb&w=1600"
                   alt="..."
                 />
-
+                <MDBCarouselItem
+                  className=" w-100 d-block carouselfotologin"
+                  itemId={3}
+                  src="https://images.pexels.com/photos/2583852/pexels-photo-2583852.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                  alt="..."
+                />
               </MDBCarousel>
             </div>
           </div>

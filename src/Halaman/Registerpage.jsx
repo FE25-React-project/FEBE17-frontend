@@ -173,7 +173,7 @@ const Registerpage = () => {
               </h6>
             </div>
             <div className="col align-self-center container-fluid  ">
-              <MDBCarousel showControls fade>
+              <MDBCarousel showControls >
                 <MDBCarouselItem
                   className="w-100 d-block carouselfoto"
                   itemId={1}
