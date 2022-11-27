@@ -50,6 +50,7 @@ const Navbar = () => {
                 Login
               </Link>
             </li>
+            <Link to={'/myprofile'} >editprofile</Link>
           </ul>
         </div>
       </div>

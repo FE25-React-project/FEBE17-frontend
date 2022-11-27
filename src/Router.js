@@ -11,6 +11,7 @@ import All_Course from "./Halaman/All_course";
 import HomeCourse from "./Halaman/HomeCourse";
 import CoursePage from "./Halaman/CoursePage";
 import Landingpage from "./Halaman/Landingpage";
+import Editprofile from "./Halaman/Editprofile";
 
 
 const Routerapp = () => {
@@ -19,6 +20,7 @@ const Routerapp = () => {
       <Routes>
    
         <Route path="/" element={<Landingpage />} />
+        <Route path="/myprofile" element={<Editprofile/>}/>
         <Route path="/login" element={<Loginpage />} />
         <Route path="/register" element={<Registerpage />} />
         <Route path="/home" element={<Home />} />
