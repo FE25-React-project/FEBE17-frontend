@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import "./Navbar.css";
 
 const Navbar = () => {
+const Profiluser = localStorage.getItem('')
+
   const [color, setColor] = useState(false);
   const changeColor = () => {
     if (window.scrollY >= 100) {

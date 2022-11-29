@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { MDBCarousel, MDBCarouselItem } from "mdb-react-ui-kit";
-
+import axios from "axios";
 import {
   MDBBtn,
   MDBBadge,
@@ -9,61 +9,34 @@ import {
   MDBInputGroup,
   MDBCheckbox,
 } from "mdb-react-ui-kit";
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
-import { Signin } from "../redux/action";
+import {  toast, Zoom, Bounce } from "react-toastify";
+import { Link } from "react-router-dom";
 import { useState } from "react";
-import { toast, Zoom } from "react-toastify";
 import { ToastContainer } from "react-toastify";
+import { SERVICES } from "../constants/services";
 
 const Loginpage = () => {
-  const { user } = useSelector((state) => state.user);
   const [email, setEmail] = useState("");
-  const [fullname, setFullname] = useState("");
-  const [useratauemail, setUseratauemail] = useState("");
   const [password, setPassword] = useState("");
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    dispatch(Signin(email, password, fullname));
-  }, []);
-
-  const SubmitForm = (e) => {
+  const SubmitForm = async (e) => {
     e.preventDefault();
-    const cariAkun = user.find(
-      (item) =>
-        (item.email === email && item.password === password) ||
-        (item.fullname === fullname && item.password === password)
-    );
-
-    if (cariAkun) {
-      localStorage.setItem("user", JSON.stringify(cariAkun));
-      toast.success(" Selamat kamu berhasil login!", {
-        position: "top-center",
-        autoClose: 1000,
-        hideProgressBar: false,
-        transition: Zoom,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
-      navigate("/home");
-    } else {
-      toast.error("kamu belum punya akun", {
-        autoClose: 1000,
-        position: "top-center",
-        transition: Zoom,
-      });
-    }
+    console.log(email, password);
+    const response = await axios
+      .post(SERVICES.login, {
+        email: email,
+        password: password,
+      })
+      .then((response) => {
+        if (response.status === 200) {
+          localStorage.setItem("token", response.data.access_token);
+          window.location.href = "/home";
+        } else {
+          alert(response.message);
+        }
+      })
+      .catch((err) => alert(err.message));
   };
-  // const [show,setShow] = useState(false)
-  // const showButton = () =>{
-  //   setShow(!show)
-  // }
+
   const [type, setType] = useState("password");
   const [icon, setIcon] = useState("fa-solid fa-eye-slash");
 
@@ -98,14 +71,13 @@ const Loginpage = () => {
                 <label htmlFor="" className="mb-4">
                   Email
                 </label>
-                <MDBInputGroup className="mb-3"  size='lg' >
+                <MDBInputGroup className="mb-3" size="lg">
                   <input
                     className="form-control"
                     type="Email"
                     placeholder="Email Input"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    
                   />
                 </MDBInputGroup>
 
@@ -113,7 +85,11 @@ const Loginpage = () => {
                   Password
                 </label>
 
-                <MDBInputGroup className="mb-3" size='lg' textAfter={<i onClick={show} id="i" className={icon}></i>}>
+                <MDBInputGroup
+                  className="mb-3"
+                  size="lg"
+                  textAfter={<i onClick={show} id="i" className={icon}></i>}
+                >
                   <input
                     className="form-control"
                     type={type}

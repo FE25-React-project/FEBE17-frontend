@@ -12,13 +12,14 @@ import HomeCourse from "./Halaman/HomeCourse";
 import CoursePage from "./Halaman/CoursePage";
 import Landingpage from "./Halaman/Landingpage";
 import Editprofile from "./Halaman/Editprofile";
+import Textedithalaman from "./Halaman/Texteditorpage";
 
 
 const Routerapp = () => {
   return (
     <div>
       <Routes>
-   
+      <Route path="/texteditor" element={<Textedithalaman />} />
         <Route path="/" element={<Landingpage />} />
         <Route path="/myprofile" element={<Editprofile/>}/>
         <Route path="/login" element={<Loginpage />} />

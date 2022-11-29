@@ -114,10 +114,15 @@ padding-bottom: 1vh;
 #containereditprofile{
 margin: 50px 0 50px 0;
 padding: 10px 0 140px 0;
-background-image: url('https://images.pexels.com/photos/1293120/pexels-photo-1293120.jpeg?auto=compress&cs=tinysrgb&w=1600') ;
+background-image: url('') ;
+
 }
 
 
 .inputuser{
     margin: 40px 0 40px 0;
+}
+#texteditor{
+    height: 80vh;
+    
 }

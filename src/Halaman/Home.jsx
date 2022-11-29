@@ -10,24 +10,26 @@ import Section5 from "../sectionhome/section5";
 import Carousel from "../sectionhome/Carousel";
 import Carouseledit from "../sectionhome/Carousel";
 const Home = () => {
-    return ( 
-        <motion.div 
-        initial={{ opacity: 0, x: 30}}
-        animate={{ opacity: 1, x: 0 }}
-        exit={{ opacity: 1, x: -30 }}
-        transition={{ duration: 1 }} >
-            <Navbar/>
-            <Hero/>
-            <Section2/>
-            <Section3/>
-            <Section4/>
-            <Section1/>
-            <Carouseledit/>
-            <Section5/>
+  return (
+    <motion.div
+      initial={{ opacity: 0, x: 30 }}
+      animate={{ opacity: 1, x: 0 }}
+      exit={{ opacity: 1, x: -30 }}
+      transition={{ duration: 1 }}
+    >
 
-            <Footer/>
-        </motion.div>
-     );
-}
- 
+      <Navbar />
+      <Hero />
+      <Section2 />
+      <Section3 />
+      <Section4 />
+      <Section1 />
+      <Carouseledit />
+      <Section5 />
+
+      <Footer />
+    </motion.div>
+  );
+};
+
 export default Home;
