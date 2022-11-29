@@ -13,7 +13,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import axios from "axios";
 import { SERVICES } from "../constants/services";
-import Navbar from "../components/Navbar";
+
 const Registerpage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -22,43 +22,7 @@ const Registerpage = () => {
   const navigate = useNavigate();
   const SubmitForm = async (e) => {
     e.preventDefault();
-    if (email === "" && password === "") {
-      toast.error("Kamu harus mengisi form terlebih dahulu", {
-        autoClose: 1000,
-        position: "top-center",
-        transition: Zoom,
-      });
-    } else if (email === "") {
-      toast.warning("Email tidak boleh kosong", {
-        autoClose: 1000,
-        position: "top-center",
-        transition: Bounce,
-      });
-    } else if (password === "") {
-      toast.warning("Password tidak boleh kosong", {
-        autoClose: 1000,
-        position: "top-center",
-        transition: Bounce,
-      });
-    } else if (password.length < 5) {
-      toast.warning("Password harus memiliki setidaknya 6 karakter", {
-        autoClose: 1000,
-        position: "top-center",
-        transition: Bounce,
-      });
-    } else if (password !== confirmpassword) {
-      toast.warning("password tidak sama", {
-        autoClose: 1000,
-        position: "top-center",
-        transition: Bounce,
-      });
-    } else if (fullname === "") {
-      toast.warning("nama tidak boleh kosong", {
-        autoClose: 1000,
-        position: "top-center",
-        transition: Bounce,
-      });
-    } else {
+    
       try {
         console.log(fullname, email, password, confirmpassword);
         const response = await axios
@@ -74,17 +38,16 @@ const Registerpage = () => {
             });
             navigate("/login");
           })
-          .catch((error) => {
-            console.log(error.response);
-            if (error.response) {
-              alert("email sudah terdaftar");
-            }
-          });
-        console.log(response);
+          
       } catch (err) {
-        console.log(err);
+        console.log(err.response.data.errors[0].msg);
+        toast.warning(err.response.data.errors[0].msg, {
+          autoClose: 1000,
+          position: "top-center",
+          transition: Zoom,
+        });
       }
-    }
+ 
   };
   const [type, setType] = useState("password");
   const [icon, setIcon] = useState("fa-solid fa-eye-slash");

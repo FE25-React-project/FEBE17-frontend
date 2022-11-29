@@ -1,15 +1,19 @@
-import { MDBDropdownItem } from "mdb-react-ui-kit";
+import {
+  MDBBtn,
+  MDBDropdown,
+  MDBDropdownItem,
+  MDBDropdownMenu,
+  MDBDropdownToggle,
+} from "mdb-react-ui-kit";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Navbar.css";
 
 const Navbar = () => {
-  //   const Profiluser = JSON.parse(localStorage.getItem('token'));
-  //   const Navigate = useNavigate()
-  // const Logout = () =>{
-  //   localStorage.clear();
-  //   Navigate('/login')
-  // }
+  const Logout = () => {
+    localStorage.clear();
+    window.location.href = "/login";
+  };
   const [color, setColor] = useState(false);
   const changeColor = () => {
     if (window.scrollY >= 100) {
@@ -73,22 +77,30 @@ const Navbar = () => {
                 Blog
               </Link>
             </li>
-            {
-              localStorage.getItem('token')?
-              <li className="nav-item">
-              <Link to={"/login"} className="btn btn-primary btn-sm mt-1">
-                Logout
-              </Link>
-            </li>
-              :
+            {localStorage.getItem("token") ? (
+              <MDBDropdown dropleft>
+                <MDBDropdownToggle className="bg-light text-dark">
+                  ....
+                </MDBDropdownToggle>
+                <MDBDropdownMenu className="bg-dark text-dark">
+                  <Link to={"/login"} onClick={Logout}>
+                    <MDBDropdownItem link>Logout</MDBDropdownItem>
+                  </Link>
+                  <Link to={"/myprofile"}>
+                    <MDBDropdownItem link className="text-dark bg-dark">
+                      Edit profile
+                    </MDBDropdownItem>
+                  </Link>
+                </MDBDropdownMenu>
+              </MDBDropdown>
+            ) : (
+              
               <li className="nav-item">
                 <Link to={"/login"} className="btn btn-primary btn-sm mt-1">
                   Login
                 </Link>
               </li>
-            }
-
-            <Link to={"/myprofile"}>editprofile</Link>
+            )}
           </ul>
         </div>
       </div>
