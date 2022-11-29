@@ -13,6 +13,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import axios from "axios";
 import { SERVICES } from "../constants/services";
+import Navbar from "../components/Navbar";
 const Registerpage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -104,6 +105,7 @@ const Registerpage = () => {
         className="container-xxl   "
         id="testerregis"
       >
+        
         <motion.div className="d-flex align-items-center border border-1 py-5 px-5 shadow-5">
           <ToastContainer />
           <MDBContainer className="container-fluid ">

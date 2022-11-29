@@ -9,11 +9,12 @@ import {
   MDBInputGroup,
   MDBCheckbox,
 } from "mdb-react-ui-kit";
-import {  toast, Zoom, Bounce } from "react-toastify";
+import { toast, Zoom, Bounce } from "react-toastify";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { ToastContainer } from "react-toastify";
 import { SERVICES } from "../constants/services";
+import Navbar from "../components/Navbar";
 
 const Loginpage = () => {
   const [email, setEmail] = useState("");
@@ -29,12 +30,18 @@ const Loginpage = () => {
       .then((response) => {
         if (response.status === 200) {
           localStorage.setItem("token", response.data.access_token);
+
           window.location.href = "/home";
+          toast.success("Selamat kamu berhasil login", {
+            autoClose: 1000,
+            position: "top-center",
+            transition: Zoom,
+          });
         } else {
           alert(response.message);
         }
       })
-      .catch((err) => alert(err.message));
+      .catch((err) => toast.success(err.message));
   };
 
   const [type, setType] = useState("password");

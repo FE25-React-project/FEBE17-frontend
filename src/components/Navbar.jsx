@@ -1,10 +1,15 @@
+import { MDBDropdownItem } from "mdb-react-ui-kit";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Navbar.css";
 
 const Navbar = () => {
-const Profiluser = localStorage.getItem('')
-
+  //   const Profiluser = JSON.parse(localStorage.getItem('token'));
+  //   const Navigate = useNavigate()
+  // const Logout = () =>{
+  //   localStorage.clear();
+  //   Navigate('/login')
+  // }
   const [color, setColor] = useState(false);
   const changeColor = () => {
     if (window.scrollY >= 100) {
@@ -17,18 +22,36 @@ const Profiluser = localStorage.getItem('')
   window.addEventListener("scroll", changeColor);
 
   return (
-    <nav className={color ? "navbar navbar-expand-lg fixed-top navbar-dark nav-bg" : "navbar navbar-expand-lg fixed-top navbar-dark"}>
+    <nav
+      className={
+        color
+          ? "navbar navbar-expand-lg fixed-top navbar-dark nav-bg"
+          : "navbar navbar-expand-lg fixed-top navbar-dark"
+      }
+    >
       <div className="container">
         <Link className="navbar-brand fw-bold fs-4" to={"/home"}>
           UrArtCourse
         </Link>
-        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <Link className="nav-link active mx-1" aria-current="page" to={"/home"}>
+              <Link
+                className="nav-link active mx-1"
+                aria-current="page"
+                to={"/home"}
+              >
                 Home
               </Link>
             </li>
@@ -38,7 +61,10 @@ const Profiluser = localStorage.getItem('')
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link active mx-1 text-white" to={"/allcourse"}>
+              <Link
+                className="nav-link active mx-1 text-white"
+                to={"/allcourse"}
+              >
                 Course
               </Link>
             </li>
@@ -47,12 +73,22 @@ const Profiluser = localStorage.getItem('')
                 Blog
               </Link>
             </li>
-            <li className="nav-item">
+            {
+              localStorage.getItem('token')?
+              <li className="nav-item">
               <Link to={"/login"} className="btn btn-primary btn-sm mt-1">
-                Login
+                Logout
               </Link>
             </li>
-            <Link to={'/myprofile'} >editprofile</Link>
+              :
+              <li className="nav-item">
+                <Link to={"/login"} className="btn btn-primary btn-sm mt-1">
+                  Login
+                </Link>
+              </li>
+            }
+
+            <Link to={"/myprofile"}>editprofile</Link>
           </ul>
         </div>
       </div>
