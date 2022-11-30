@@ -31,18 +31,19 @@ const Loginpage = () => {
         console.log(response);
         if (response.status === 200) {
           localStorage.setItem("token", response.data.access_token);
+          localStorage.setItem("user", JSON.stringify(response.data.user))
           window.location.href = "/home";
-          toast.success("Selamat kamu berhasil login", {
+          toast.success(response.data.status.message, {
             autoClose: 1000,
             position: "top-center",
             transition: Zoom,
           });
         } else {
-          alert(response.message);
+          console.log(response.status.message);
         }
       })
       .catch((err) => {
-        console.log(err.response.data);
+        console.log(err.response.data.message);
         toast.warning(err.response.data.message, {
           autoClose: 1000,
           position: "top-center",

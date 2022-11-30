@@ -6,10 +6,12 @@ import {
   MDBDropdownToggle,
 } from "mdb-react-ui-kit";
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./Navbar.css";
-
 const Navbar = () => {
+  const User = JSON.parse(localStorage.getItem("user"));
+  const Fullname = User.fullname;
+  console.log(Fullname);
   const Logout = () => {
     localStorage.clear();
     window.location.href = "/login";
@@ -48,41 +50,42 @@ const Navbar = () => {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li className="nav-item">
-              <Link
-                className="nav-link active mx-1"
-                aria-current="page"
-                to={"/home"}
-              >
-                Home
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link active mx-1" to={"/about"}>
-                About
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link
-                className="nav-link active mx-1 text-white"
-                to={"/allcourse"}
-              >
-                Course
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link active mx-1" to={"/blog"}>
-                Blog
-              </Link>
-            </li>
-            {localStorage.getItem("token") ? (
-              <MDBDropdown dropleft>
+
+        {localStorage.getItem("token") ? (
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li className="nav-item">
+                <Link
+                  className="nav-link active mx-1"
+                  aria-current="page"
+                  to={"/home"}
+                >
+                  Home
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link active mx-1" to={"/about"}>
+                  About
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link
+                  className="nav-link active mx-1 text-white"
+                  to={"/allcourse"}
+                >
+                  Course
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link active mx-1" to={"/blog"}>
+                  Blog
+                </Link>
+              </li>
+              <MDBDropdown>
                 <MDBDropdownToggle className="bg-light text-dark">
-                  ....
+                  {Fullname}
                 </MDBDropdownToggle>
-                <MDBDropdownMenu className="bg-dark text-dark">
+                <MDBDropdownMenu className="bg-dark text-dark" title="">
                   <Link to={"/login"} onClick={Logout}>
                     <MDBDropdownItem link>Logout</MDBDropdownItem>
                   </Link>
@@ -93,16 +96,34 @@ const Navbar = () => {
                   </Link>
                 </MDBDropdownMenu>
               </MDBDropdown>
-            ) : (
-              
+            </ul>
+          </div>
+        ) : (
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li className="nav-item">
+                <Link
+                  className="nav-link active mx-1"
+                  aria-current="page"
+                  to={"/home"}
+                >
+                  Home
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link active mx-1" to={"/about"}>
+                  About
+                </Link>
+              </li>
               <li className="nav-item">
                 <Link to={"/login"} className="btn btn-primary btn-sm mt-1">
                   Login
                 </Link>
               </li>
-            )}
-          </ul>
-        </div>
+            </ul>
+          </div>
+        )
+        }
       </div>
     </nav>
   );

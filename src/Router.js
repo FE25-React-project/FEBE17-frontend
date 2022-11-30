@@ -13,6 +13,8 @@ import CoursePage from "./Halaman/CoursePage";
 import Landingpage from "./Halaman/Landingpage";
 import Editprofile from "./Halaman/Editprofile";
 import Textedithalaman from "./Halaman/Texteditorpage";
+import Course1 from "./Halaman/Course";
+import Coursedetail from "./Halaman/Coursedetail";
 
 
 const Routerapp = () => {
@@ -21,6 +23,8 @@ const Routerapp = () => {
       <Routes>
       <Route path="/texteditor" element={<Textedithalaman />} />
         <Route path="/" element={<Landingpage />} />
+        <Route path="/course" element={<Course1 />} />
+        <Route path="/coursedetail/:id" element ={<Coursedetail/>}/>
         <Route path="/myprofile" element={<Editprofile/>}/>
         <Route path="/login" element={<Loginpage />} />
         <Route path="/register" element={<Registerpage />} />
