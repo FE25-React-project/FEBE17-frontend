@@ -1,13 +1,9 @@
 import { MDBBtn } from "mdb-react-ui-kit";
 import { Link } from "react-router-dom";
 
-
-
 const Section5 = () => {
-
   return (
     <div className="d-flex align-items-center" id="section">
-      
       <div className="container">
         <div className="row">
           <div className="col text-center">
@@ -23,14 +19,9 @@ const Section5 = () => {
               Coming soon
             </Link>
           </div>
-          <div>
-            
-          </div>
           
         </div>
-        
       </div>
-      
     </div>
   );
 };

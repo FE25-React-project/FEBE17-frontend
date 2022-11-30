@@ -31,13 +31,13 @@ const Routerapp = () => {
         <Route path="/home" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/blog" element={<Blog />} />
-        <Route path="/allcourse">
+        {/* <Route path="/allcourse">
           <Route path="" element={<All_Course />} />
           <Route path=":Title/:id">
             <Route path="" element={<HomeCourse />} />
             <Route path=":Title/:id" element={<CoursePage />} />
           </Route>
-        </Route>
+        </Route> */}
       </Routes>
     </div>
   );
