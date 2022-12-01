@@ -7,7 +7,7 @@ import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 const Course1 = () => {
   const [data, setData] = useState([]);
-  const [courses, setCourses] = useState([]);
+  // const [courses, setCourses] = useState([]);
   useEffect(() => {
     axios
       .get("https://api-serrum-gudskul.herokuapp.com/api/all-kategori")

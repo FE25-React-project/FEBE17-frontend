@@ -8,6 +8,7 @@ import Footer from "../components/Footer";
 const Coursedetail = () => {
   const [data, setData] = useState([]);
   const params = useParams()
+  
   useEffect(() => {
     axios.get(`https://api-serrum-gudskul.herokuapp.com/api/all-kategori/${params.url}`,{
         headers:{
