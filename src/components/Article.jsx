@@ -16,9 +16,9 @@ const Article = () => {
       <div className="cardarticle">
         <div className="container mt-5 mb-5 pb-5">
           <div className="row row-cols-lg-3 row-cols-md-2 row-cols-1 g-4">
-            {/* {data.map((item) => {
-              return <AticleCard key={index} judul={item.thumbnail} desc={item.name} url= {item.url} />;
-            })} */}
+            {data.map((item) => {
+              return (<AticleCard  judul={item.thumbnail} desc={item.name} url= {item.url} />);
+            })}
           </div>
         </div>
       </div>

@@ -78,7 +78,7 @@ const Navbar = () => {
               </li>
               <li className="nav-item">
                 <Link className="nav-link active mx-1" to={"/blog"}>
-                  Blog
+                 Daerah
                 </Link>
               </li>
               <MDBDropdown>

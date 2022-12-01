@@ -11,13 +11,15 @@ const Coursedetail = () => {
   
   useEffect(() => {
     axios.get(`https://api-serrum-gudskul.herokuapp.com/api/all-kategori/${params.url}`,{
-        headers:{
-            Authorization: `Bearer ${localStorage.getItem('token')
+        headers:
+        
+        {
+           ' Authorization': `Bearer ${JSON.parse(localStorage.getItem('token'))
             }`
         }
     } ).then((res) => {
       setData(res.data.data);
-      console.log(res.data.data);
+      console.log(res);
     });
   },[]);
   

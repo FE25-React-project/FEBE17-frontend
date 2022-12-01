@@ -28,18 +28,23 @@ const Course1 = () => {
         <div className="container">
           <div className="row">
             <div className="col text-start">
-              <MDBBreadcrumb>
+              <MDBBreadcrumb className="mt-0">
                 <MDBBreadcrumbItem>
+                  <Link to={'/home'}>
                   <a href="#">Home</a>
+                  </Link>
+                  
                 </MDBBreadcrumbItem>
                 <MDBBreadcrumbItem active>
+                <Link to={'/course'}>
                   <a href="#">Semua kategori</a>
+                  </Link>
                 </MDBBreadcrumbItem>
               </MDBBreadcrumb>
               <h1 className="text-white mt-4 mb-4 text-opacity-100">
                 SEMUA KATEGORI
               </h1>
-              <p className="text-white mb-4">
+              <p className="text-white mt-4  mb-4">
                 Pilih dan cari tahu bakatmu dengan beragam kursus yang menarik
               </p>
             </div>

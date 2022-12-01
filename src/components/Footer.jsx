@@ -22,7 +22,7 @@ const Footer = () => {
               Course
             </Link>
             <Link to={"/blog"} className="text-white-50 mt-2">
-              Blog
+              Daerah
             </Link>
           </div>
           <div className="col col-lg-3 d-flex flex-column mb-lg-0 mb-4">
