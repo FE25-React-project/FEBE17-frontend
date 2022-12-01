@@ -24,7 +24,7 @@ const Routerapp = () => {
       <Route path="/texteditor" element={<Textedithalaman />} />
         <Route path="/" element={<Landingpage />} />
         <Route path="/course" element={<Course1 />} />
-        <Route path="/coursedetail/:id" element ={<Coursedetail/>}/>
+        <Route path="/course/coursedetail/:url" element ={<Coursedetail/>}/>
         <Route path="/myprofile" element={<Editprofile/>}/>
         <Route path="/login" element={<Loginpage />} />
         <Route path="/register" element={<Registerpage />} />

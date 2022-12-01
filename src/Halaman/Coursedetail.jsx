@@ -5,24 +5,32 @@ import { motion } from "framer-motion";
 import Navbar from "../components/Navbar";
 import { MDBBreadcrumb, MDBBreadcrumbItem } from "mdb-react-ui-kit";
 import Footer from "../components/Footer";
+
 const Coursedetail = () => {
   const [data, setData] = useState([]);
   const params = useParams()
+
+  const fetchData = async () => {
+    try {
+      const response = await axios.get(`https://api-serrum-gudskul.herokuapp.com/api/all-kategori/${params.url}`,
+      {
+        headers:
+        {
+           'Authorization': `Bearer ${localStorage.getItem('token')}`
+        }
+      })
+      setData(response?.data?.data)
+    } catch (error) {
+      console.error(error)
+    }
+  }
   
   useEffect(() => {
-    axios.get(`https://api-serrum-gudskul.herokuapp.com/api/all-kategori/${params.url}`,{
-        headers:
-        
-        {
-           ' Authorization': `Bearer ${JSON.parse(localStorage.getItem('token'))
-            }`
-        }
-    } ).then((res) => {
-      setData(res.data.data);
-      console.log(res);
-    });
+    fetchData()
   },[]);
-  
+
+  console.log(data)
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -90,15 +98,13 @@ const Coursedetail = () => {
         </p>
 
         <div className="row container-fluid row-cols-2 row-cols-lg-5 g-3  align-items-center mb-5 ">
-          {data.map((item) => (
-            <Link to={`coursedetail/${item.url}`}>
+        <Link to={`coursedetail/${data.url}`}>
               <div className="bg-image hover-zoom border shadow-5 m-4 p-4">
-                <img src={item.gambar} className="img-fluid" alt="Sample" />
+                <img src={data.gambar} className="img-fluid" alt="Sample" />
                 <div></div>
-                <p>{item.nama}</p>
+                <p>{data.nama}</p>
               </div>
             </Link>
-          ))}
         </div>
       </div>
       <Footer />
