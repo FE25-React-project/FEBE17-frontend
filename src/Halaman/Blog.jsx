@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import Sectionblog1 from "../Sectionblog/Sectionblog1";
 
 const Blog = () => {
+  
   return (
     <motion.div
       animate={{
@@ -20,7 +21,7 @@ const Blog = () => {
       }}
     >
       <Navbar />
-      <Intro heading={"Artikel"} description={"Lebih dalam mengenal seni"} />
+      <Intro heading={"Daerah"} description={"Kenali daerah mu"} />
       <Sectionblog1 />
 
       <Article />

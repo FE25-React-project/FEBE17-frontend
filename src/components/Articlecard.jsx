@@ -2,13 +2,13 @@ import "./card.css";
 
 const AticleCard = (props) => {
   return (
-    <div className="col">
-      <img src={props.img} alt="" className="w-100 mb-3" />
-      <h4 className="fw-semibold">{props.judul}</h4>
-      <p>{props.desc}</p>
-      <a href={props.url} className="btn btn-lg btn-primary">
-        Baca Sekarang
-      </a>
+    <div className="col text-center hover-zoom ">
+      <img src={props.img} alt="" className=" rounded-7 border  border-1 shadow-5 mb-3" style={
+        {width: '80%', height: '400px'}
+      } />
+      <h4 className="fw-light text-decoration-underline">{props.judul}</h4>
+      <h4 className="" >{props.desc}</h4>
+
     </div>
   );
 };

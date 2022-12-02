@@ -42,6 +42,11 @@ margin: 150px;
     width: 400px ;
 }
 
+#imgdummy{
+    object-fit: cover;
+    height: 700;
+    width: 70vw ;
+}
 
 
 #testerregis{
@@ -125,4 +130,12 @@ background-image: url('') ;
 #texteditor{
     height: 80vh;
     
+}
+
+#daerahdummy{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://images.pexels.com/photos/2480626/pexels-photo-2480626.jpeg?auto=compress&cs=tinysrgb&w=1600');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 50vh;
 }

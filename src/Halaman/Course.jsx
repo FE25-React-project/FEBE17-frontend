@@ -10,12 +10,17 @@ const Course1 = () => {
   // const [courses, setCourses] = useState([]);
   useEffect(() => {
     axios
-      .get("https://api-serrum-gudskul.herokuapp.com/api/all-kategori")
+      .get("https://groupfinalproject-production.up.railway.app/api/all-kategori",{
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`
+        }
+      })
       .then((res) => {
         setData(res.data.data);
+        console.log(res.data.data);
       });
   }, []);
-  console.log(data);
+  
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}

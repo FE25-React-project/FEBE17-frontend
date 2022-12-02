@@ -4,14 +4,23 @@ import {
   MDBDropdownItem,
   MDBDropdownMenu,
   MDBDropdownToggle,
+  MDBModal,
+  MDBModalBody,
+  MDBModalContent,
+  MDBModalDialog,
+  MDBModalFooter,
+  MDBModalHeader,
+  MDBModalTitle,
 } from "mdb-react-ui-kit";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 const Navbar = () => {
   const User = JSON.parse(localStorage.getItem("user"));
-  const Fullname = User.fullname;
-  console.log(Fullname);
+  const [topRightModal, setTopRightModal] = useState(false);
+
+  const toggleShow = () => setTopRightModal(!topRightModal);
+  console.log(User);
   const Logout = () => {
     localStorage.clear();
     window.location.href = "/login";
@@ -77,26 +86,35 @@ const Navbar = () => {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link active mx-1" to={"/blog"}>
-                 Daerah
+                <Link className="nav-link active mx-1" to={"/daerah"}>
+                  Daerah
                 </Link>
               </li>
+              
               <MDBDropdown>
                 <MDBDropdownToggle className="bg-light text-dark">
-                  {Fullname}
+                  {User.fullname}
                 </MDBDropdownToggle>
                 <MDBDropdownMenu className="bg-dark text-dark" title="">
                   <Link to={"/login"} onClick={Logout}>
                     <MDBDropdownItem link>Logout</MDBDropdownItem>
                   </Link>
-                  <Link to={"/myprofile"}>
-                    <MDBDropdownItem link className="text-dark bg-dark">
-                      Edit profile
+                 
+                    <MDBDropdownItem
+                      onClick={toggleShow}
+                      link
+                      className="text-dark bg-dark"
+                    >
+                      My profile
+                      
                     </MDBDropdownItem>
-                  </Link>
+                  
                 </MDBDropdownMenu>
+                
               </MDBDropdown>
+
             </ul>
+            
           </div>
         ) : (
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
@@ -122,8 +140,7 @@ const Navbar = () => {
               </li>
             </ul>
           </div>
-        )
-        }
+        )}
       </div>
     </nav>
   );

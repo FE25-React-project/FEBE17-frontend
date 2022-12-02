@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 const Editprofile = () => {
+  const User = JSON.parse(localStorage.getItem("user"));
   return (
     <motion.div
       initial={{ opacity: 0, x: -30 }}
@@ -23,7 +24,7 @@ const Editprofile = () => {
             <div className=" d-flex align-items-start">
               <div className=" px-5 text-start ">
                 <div className=" inputuser text-end my-3 d-flex ">
-                  <h3>Name</h3>
+                  <h3>{User.fullname}</h3>
                 </div>
                 <div className=" inputuser mt-1 d-flex  ">
                   <label className="mx-5 fw-bold" htmlFor="">

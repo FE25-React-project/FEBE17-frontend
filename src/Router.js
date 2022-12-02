@@ -15,6 +15,8 @@ import Editprofile from "./Halaman/Editprofile";
 import Textedithalaman from "./Halaman/Texteditorpage";
 import Course1 from "./Halaman/Course";
 import Coursedetail from "./Halaman/Coursedetail";
+import Daerahdummy from "./Halaman/Daerahdummy";
+import Daerahdetail from "./Halaman/Daerahdetail";
 
 
 const Routerapp = () => {
@@ -23,14 +25,16 @@ const Routerapp = () => {
       <Routes>
       <Route path="/texteditor" element={<Textedithalaman />} />
         <Route path="/" element={<Landingpage />} />
+        <Route path="/daerahdummy" element={<Daerahdummy/>} />
         <Route path="/course" element={<Course1 />} />
+        <Route path="/daerahdetail/:url" element={<Daerahdetail/>} />
         <Route path="/course/coursedetail/:url" element ={<Coursedetail/>}/>
         <Route path="/myprofile" element={<Editprofile/>}/>
         <Route path="/login" element={<Loginpage />} />
         <Route path="/register" element={<Registerpage />} />
         <Route path="/home" element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="/blog" element={<Blog />} />
+        <Route path="/daerah" element={<Blog />} />
         {/* <Route path="/allcourse">
           <Route path="" element={<All_Course />} />
           <Route path=":Title/:id">
